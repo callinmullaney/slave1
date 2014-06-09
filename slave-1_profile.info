@@ -74,7 +74,10 @@ dependencies[] = xmlsitemap_engines
 dependencies[] = xmlsitemap_node
 dependencies[] = xmlsitemap_taxonomy
 
+;Custom Modules/Features
+
 ; Themes
+dependencies[] = page_content
 
 
 files[] = slave-1_profile.profile

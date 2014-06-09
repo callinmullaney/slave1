@@ -31,9 +31,9 @@ function slave-1_profile_install(&$task, $url) {
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'bootstrap')
+    ->condition('name', 'fett')
     ->execute();
-  variable_set('theme_default', 'bootstrap');
+  variable_set('theme_default', 'fett');
   
   
   // Enable the admin theme.
@@ -87,7 +87,7 @@ function slave-1_profile_install(&$task, $url) {
   // Set the jQuery version to 1.8.
   variable_set('jquery_update_compression_type', 'min');
   variable_set('jquery_update_jquery_cdn', 'google');
-  variable_set('jquery_update_jquery_version', '1.8');
+  variable_set('jquery_update_jquery_version', '1.10');
   
   
   // Create a Home link in the main menu.
