@@ -1,0 +1,80 @@
+name = Slave 1
+description = Custom distribution for Drupal projects. Provides a host of configuration changes that help get you up and running faster with Drupal.
+version = 1.0
+core = 7.x
+
+; Core modules
+dependencies[] = block
+dependencies[] = contextual
+dependencies[] = dblog
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = rdf
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = taxonomy
+dependencies[] = update
+
+; Contrib modules
+dependencies[] = addressfield
+dependencies[] = admin_menu
+dependencies[] = admin_menu_adminimal
+dependencies[] = better_exposed_filters
+dependencies[] = better_formats
+dependencies[] = bxslider_views_slideshow
+dependencies[] = ckeditor
+dependencies[] = ckeditor_link
+dependencies[] = ckeditor_link_file
+dependencies[] = context
+dependencies[] = context_ui
+dependencies[] = ctools
+dependencies[] = default_menu_link
+dependencies[] = date
+dependencies[] = date_api
+dependencies[] = devel
+dependencies[] = entity
+dependencies[] = entityreference
+dependencies[] = eck
+dependencies[] = features
+dependencies[] = field_group
+dependencies[] = file_entity
+dependencies[] = geofield
+dependencies[] = geophp
+dependencies[] = inline_entity_form
+dependencies[] = jquery_update
+dependencies[] = libraries
+dependencies[] = menu_block
+dependencies[] = metatags_quick
+dependencies[] = module_filter
+dependencies[] = nodeformsettings
+dependencies[] = page_title
+dependencies[] = pathauto
+dependencies[] = publish_button
+dependencies[] = redirect
+dependencies[] = references
+dependencies[] = smtp
+dependencies[] = strongarm
+dependencies[] = textformatter
+dependencies[] = textformatter_contrib
+dependencies[] = advanced_text_formatter
+dependencies[] = token
+dependencies[] = views
+dependencies[] = views_slideshow
+dependencies[] = views_ui
+dependencies[] = views_ui_basic
+dependencies[] = webform
+dependencies[] = xmlsitemap
+dependencies[] = xmlsitemap_engines
+dependencies[] = xmlsitemap_node
+dependencies[] = xmlsitemap_taxonomy
+
+; Themes
+
+
+files[] = slave-1_profile.profile

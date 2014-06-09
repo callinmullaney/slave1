@@ -1,0 +1,122 @@
+<?php
+
+/**
+ * Implementation of hook_install().
+ */
+function slave-1_profile_install(&$task, $url) {
+  
+  // Create a default role for site administrators, with all available permissions assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = 'administrator';
+  $admin_role->weight = 2;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+  
+  
+  db_update('system')
+    ->fields(array('status' => 0))
+    ->condition('type', 'theme')
+    ->condition('name', 'bartik')
+    ->execute();
+  
+  //Enable and make default Bootstrap base theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'bootstrap')
+    ->execute();
+  variable_set('theme_default', 'bootstrap');
+  
+  
+  // Enable the admin theme.
+  variable_set('node_admin_theme', '1');
+  
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'adminimal')
+    ->execute();
+  variable_set('admin_theme', 'adminimal');
+  
+  
+  // Add text formats.
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 1,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+  
+
+  // Enable default permissions for system roles.
+  $filtered_html_permission = filter_permission_name($full_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', $filtered_html_permission));
+
+
+  // Allow visitor account creation with administrative approval.
+  variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
+  
+  
+  // Set the jQuery version to 1.8.
+  variable_set('jquery_update_compression_type', 'min');
+  variable_set('jquery_update_jquery_cdn', 'google');
+  variable_set('jquery_update_jquery_version', '1.8');
+  
+  
+  // Create a Home link in the main menu.
+  $item = array(
+    'link_title' => st('Home'),
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+  );
+  menu_link_save($item);
+
+  // Update the menu router information.
+  menu_rebuild();
+  
+  // Setup a minimal WYSIWYG editor with the basic toolbar options
+    
+
+  // Setting some default date formats.
+  variable_set('date_first_day', '0');
+  variable_set('date_format_long', 'l, F j, Y - g:ia');
+  variable_set('date_format_medium', 'D, Y-m-d g:ia');
+  variable_set('date_format_short', 'Y-m-d g:ia');
+  variable_set('time_twelve_hour', 'g:ia');
+  variable_set('time_twentyfour_hour', 'H:i');
+  variable_set('day_number_with_suffix', 'jS');
+  variable_set('day_number', 'j');
+  variable_set('day_word_long', 'l');
+  variable_set('day_word_short', 'D');
+  variable_set('month_short', 'M');
+  variable_set('month_long', 'F');
+  variable_set('year_short', 'y');
+  variable_set('year_long', 'Y');
+}
