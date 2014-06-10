@@ -1,6 +1,17 @@
 <?php
 
 /**
+ * Implements hook_install_tasks()
+ */
+function slave-1_install_tasks(&$install_state) {
+
+  // Add our custom CSS file for the installation process
+  drupal_add_css(drupal_get_path('profile', 'slave-1') . '/slave-1.css');
+
+}
+
+
+/**
  * Implements hook_form_FORM_ID_alter().
  *
  * Allows the profile to alter the site configuration form.

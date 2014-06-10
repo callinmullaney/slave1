@@ -3,6 +3,8 @@ description = Custom distribution for Drupal projects. Provides a host of config
 version = 1.0
 core = 7.x
 
+files[] = slave-1_profile.profile
+
 ; Core modules
 dependencies[] = block
 dependencies[] = contextual
@@ -81,5 +83,3 @@ dependencies[] = page_content
 ; Themes
 
 
-
-files[] = slave-1_profile.profile
