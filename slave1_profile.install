@@ -3,7 +3,7 @@
 /**
  * Implementation of hook_install().
  */
-function slave-1_profile_install(&$task, $url) {
+function slave1_profile_install(&$task, $url) {
   
   // Create a default role for site administrators, with all available permissions assigned.
   $admin_role = new stdClass();

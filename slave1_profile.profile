@@ -3,10 +3,10 @@
 /**
  * Implements hook_install_tasks()
  */
-function slave-1_install_tasks(&$install_state) {
+function slave1_install_tasks(&$install_state) {
 
   // Add our custom CSS file for the installation process
-  drupal_add_css(drupal_get_path('profile', 'slave-1') . '/slave-1.css');
+  drupal_add_css(drupal_get_path('profile', 'slave1') . '/slave1.css');
 
 }
 
@@ -16,7 +16,7 @@ function slave-1_install_tasks(&$install_state) {
  *
  * Allows the profile to alter the site configuration form.
  */
-function slave-1_profile_form_install_configure_form_alter(&$form, $form_state) {
+function slave1_profile_form_install_configure_form_alter(&$form, $form_state) {
   // Pre-populate the site name with the server name.
   $form['site_information']['site_name']['#default_value'] = $_SERVER['SERVER_NAME'];
   $form['site_information']['site_mail']['#default_value'] = "no-reply@clientemail.com";
