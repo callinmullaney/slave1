@@ -26,7 +26,7 @@ dependencies[] = update
 ; Contrib modules
 dependencies[] = addressfield
 dependencies[] = admin_menu
-dependencies[] = admin_menu_adminimal
+dependencies[] = adminimal_admin_menu
 dependencies[] = better_exposed_filters
 dependencies[] = better_formats
 dependencies[] = bxslider_views_slideshow
@@ -69,7 +69,6 @@ dependencies[] = token
 dependencies[] = views
 dependencies[] = views_slideshow
 dependencies[] = views_ui
-dependencies[] = views_ui_basic
 dependencies[] = webform
 dependencies[] = xmlsitemap
 dependencies[] = xmlsitemap_engines
