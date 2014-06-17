@@ -24,7 +24,7 @@ dependencies[] = update
 
 ; Contrib modules
 dependencies[] = addressfield
-dependencies[] = Asset
+dependencies[] = asset
 dependencies[] = better_exposed_filters
 dependencies[] = better_formats
 dependencies[] = bxslider_views_slideshow
@@ -41,7 +41,7 @@ dependencies[] = devel
 dependencies[] = entity
 dependencies[] = entityreference
 dependencies[] = eck
-dependencies[] = eXo
+dependencies[] = exo
 dependencies[] = fawesome
 dependencies[] = features
 dependencies[] = field_group
@@ -67,7 +67,7 @@ dependencies[] = textformatter
 dependencies[] = textformatter_contrib
 dependencies[] = advanced_text_formatter
 dependencies[] = token
-dependencies[] = Valet
+dependencies[] = valet
 dependencies[] = views
 dependencies[] = views_slideshow
 dependencies[] = views_ui
