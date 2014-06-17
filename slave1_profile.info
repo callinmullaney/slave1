@@ -1,4 +1,4 @@
-name = Slave 1
+name = Slave1
 description = Custom distribution for Drupal projects. Provides a host of configuration changes that help get you up and running faster with Drupal.
 version = 1.0
 core = 7.x
