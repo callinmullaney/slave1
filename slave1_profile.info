@@ -75,9 +75,11 @@ dependencies[] = xmlsitemap_engines
 dependencies[] = xmlsitemap_node
 dependencies[] = xmlsitemap_taxonomy
 
-;Custom Modules/Features
+; Custom Modules/Features
 dependencies[] = page_content
 
+; Pantheon Platform Modules
+dependencies[] = pantheon_api
 
 ; Themes
 
