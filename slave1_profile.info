@@ -24,7 +24,6 @@ dependencies[] = update
 
 ; Contrib modules
 dependencies[] = addressfield
-dependencies[] = asset
 dependencies[] = better_exposed_filters
 dependencies[] = better_formats
 dependencies[] = bxslider_views_slideshow
