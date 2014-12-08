@@ -42,6 +42,7 @@ dependencies[] = fawesome
 dependencies[] = features
 dependencies[] = field_group
 dependencies[] = file_entity
+dependencies[] = globalredirect
 dependencies[] = inline_entity_form
 dependencies[] = jquery_update
 dependencies[] = libraries
