@@ -1,15 +1,31 @@
 <?php
 
 /**
- * Implements hook_install_tasks()
+ * Force-set a theme at any point during the execution of the request.
+ *
+ * Drupal doesn't give us the option to set the theme during the installation
+ * process and forces enable the maintenance theme too early in the request
+ * for us to modify it in a clean way.
  */
-function slave1_install_tasks(&$install_state) {
+function _slave1_set_theme($target_theme) {
+  if ($GLOBALS['theme'] != $target_theme) {
+    unset($GLOBALS['theme']);
 
-  // Add our custom CSS file for the installation process
-  drupal_add_css(drupal_get_path('profile', 'slave1') . '/slave1.css');
-
+    drupal_static_reset();
+    $GLOBALS['conf']['maintenance_theme'] = $target_theme;
+    _drupal_maintenance_theme();
+  }
 }
 
+/**
+ * Implements hook_install_tasks_alter().
+ */
+function slave1_install_tasks_alter(&$tasks, $install_state) {
+  _slave1_set_theme('fett');
+
+  // Add our custom CSS file for the installation process
+  drupal_add_css(drupal_get_path('profile', 'slave1') . '/slave1.css', array('group' => CSS_THEME, 'weight' => 100, 'media' => 'screen',));
+}
 
 /**
  * Implements hook_form_FORM_ID_alter().
