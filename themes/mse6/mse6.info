@@ -8,6 +8,7 @@ stylesheets[screen][] = assets/css/mse6.css
 ; Scripts
 scripts[] = assets/js/jquery.selectbox.min.js
 scripts[] = assets/js/mse6.js
+scripts[] = assets/processing/processing.js
 
 regions[content] = Content
 regions[help] = Help
