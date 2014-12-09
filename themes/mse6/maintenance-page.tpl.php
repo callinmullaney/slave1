@@ -117,7 +117,7 @@ class Ball {
       Ball other = (Ball) ballCollection.get(i);
       float distance = loc.dist(other.loc);
       if (distance >0 && distance < d) {
-        stroke(#ffffff,150);
+        stroke(80);
         line(loc.x, loc.y, other.loc.x, other.loc.y);
       }
     }
@@ -126,7 +126,7 @@ class Ball {
   void display() {
     noStroke();
     for (int i=0; i<5; i++) {
-      fill(255);
+      fill(80,80,80);
       ellipse(loc.x, loc.y, sz, sz);
     }
   }
