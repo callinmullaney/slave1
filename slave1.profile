@@ -22,9 +22,6 @@ function _slave1_set_theme($target_theme) {
  */
 function slave1_install_tasks_alter(&$tasks, $install_state) {
   _slave1_set_theme('mse6');
-
-  // Add our custom CSS file for the installation process
-  drupal_add_css(drupal_get_path('profile', 'slave1') . '/slave1.css', array('group' => CSS_THEME, 'weight' => 100, 'media' => 'screen',));
 }
 
 /**

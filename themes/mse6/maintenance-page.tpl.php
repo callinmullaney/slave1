@@ -6,6 +6,7 @@
     <?php print $head; ?>
     <link href="http://fonts.googleapis.com/css?family=Lato:400,300,300italic,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <?php print $styles; ?>
     <?php print $scripts; ?>
   </head>
@@ -17,7 +18,7 @@
     <?php if ($title): ?><h1 class="page-title"><?php print $title; ?></h1><?php endif; ?>
   </div>
 
-  <div id="page">
+  <div id="page"> 
 
     <?php if ($sidebar_first): ?>
       <div id="sidebar-first" class="sidebar">

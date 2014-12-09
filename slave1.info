@@ -1,6 +1,6 @@
 name = Slave1 Install Profile
 description = Custom distribution for Drupal projects. Provides a host of configuration changes that help get you up and running faster with Drupal.
-version = 1.0
+version = 1.1
 core = 7.x
 
 files[] = slave1.profile

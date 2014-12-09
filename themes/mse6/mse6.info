@@ -2,11 +2,14 @@ name = MSE-6-Series Repair Droid
 description = A maintenance theme for Slave1 installation profile.
 core = 7.x
 
-stylesheets[screen][] = css/style.css
+; Styles
+stylesheets[screen][] = assets/css/mse6.css
 
-regions[content_before] = Before Content
+; Scripts
+scripts[] = assets/js/jquery.selectbox.min.js
+scripts[] = assets/js/mse6.js
+
 regions[content] = Content
-regions[content_after] = After Content
 regions[help] = Help
 regions[page_top] = Page top
 regions[page_bottom] = Page bottom
@@ -15,5 +18,5 @@ regions_hidden[] = sidebar_first
 
 version = "7.x-1.0"
 core = "7.x"
-project = "mse6_theme"
+project = "mse6"
 
