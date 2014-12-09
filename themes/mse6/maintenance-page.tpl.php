@@ -40,6 +40,8 @@
 
   </div>
 
+  <div class="powered">Powered by MSE-6 Series <img src="/profiles/slave1/themes/mse6/assets/images/logo_mse6.png" alt="MSE-6 Series" /></div>
+
   <?php print $page_bottom; ?>
 
 <canvas id="processing"></canvas>

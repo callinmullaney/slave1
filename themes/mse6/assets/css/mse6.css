@@ -284,8 +284,9 @@ table.system-status-report tr.error td.status-icon div {
 	background: -ms-linear-gradient(left,  #282828 0%,#363636 50%,#282828 100%); /* IE10+ */
 	background: linear-gradient(to right,  #282828 0%,#363636 50%,#282828 100%); /* W3C */
     border: 5px solid #111;
+    border-radius: 10px;
     display: table;
-    margin: 0 auto 4rem;
+    margin: 0 auto 0.5rem;
     max-width: 92%;
     width: 1200px;
     opacity: 0;
@@ -383,4 +384,26 @@ canvas {
 }
 body.loaded canvas {
 	opacity: 1;
+}
+
+
+/*-- Footer --*/
+.powered {
+	display: block;
+	position: relative;
+	z-index: 10;
+	clear: both;
+	text-align: right;
+	margin: 0 auto 4rem;
+    max-width: 92%;
+    width: 1200px;
+    font-weight: 400;
+    text-shadow: 0 1px 5px #000;
+    font-size: 15px;
+    color: #aaa;
+}
+.powered img {
+	float: right;
+    margin: -32px -10px 0 0;
+    width: 85px;
 }
