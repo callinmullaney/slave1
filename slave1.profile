@@ -18,10 +18,18 @@ function _slave1_set_theme($target_theme) {
 }
 
 /**
+ * Let's set the default language to english so we can skip step 2.
+ */
+function slave1_locale_selection(&$install_state){
+    $install_state['parameters']['locale'] = 'en';
+}
+
+/**
  * Implements hook_install_tasks_alter().
  */
 function slave1_install_tasks_alter(&$tasks, $install_state) {
   _slave1_set_theme('mse6');
+  $tasks['install_select_locale']['function'] = 'slave1_locale_selection';
 }
 
 /**

@@ -351,6 +351,21 @@ body.loaded #page {
 	content: "\f058";
 	color: #0DC100;
 }
+.task-list li.done + li.done:after {
+	border: 1px solid #222;
+    border-radius: 5px;
+    content: "English";
+    display: block;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    padding: 2px 5px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+.task-list li.done + li.done + li.done:after {
+	display: none; 
+}
 .task-list li.active {
 	
 }
