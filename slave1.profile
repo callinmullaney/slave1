@@ -8,6 +8,22 @@
 include_once 'inc/install_from_db.inc';
 
 /**
+ * Implements hook_install_tasks_alter().
+ */
+function slave1_install_tasks_alter(&$tasks, $install_state) {
+  _slave1_set_theme('mse6');
+  $tasks['install_select_locale']['function'] = 'slave1_locale_selection';
+
+  install_from_db_install_tasks_alter($tasks, $install_state);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ */
+function openatrium_form_install_configure_form_alter(&$form, $form_state) {
+}
+
+/**
  * Force-set a theme at any point during the execution of the request.
  *
  * Drupal doesn't give us the option to set the theme during the installation
@@ -29,15 +45,6 @@ function _slave1_set_theme($target_theme) {
  */
 function slave1_locale_selection(&$install_state){
     $install_state['parameters']['locale'] = 'en';
-}
-
-/**
- * Implements hook_install_tasks_alter().
- */
-function slave1_install_tasks_alter(&$tasks, $install_state) {
-  _slave1_set_theme('mse6');
-  $tasks['install_select_locale']['function'] = 'slave1_locale_selection';
-  install_from_db_install_tasks_alter($tasks, $install_state);
 }
 
 /**
