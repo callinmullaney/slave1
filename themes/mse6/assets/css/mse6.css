@@ -307,7 +307,7 @@ body.loaded #page {
     position: relative;
     width: 24%;
     border-right: 1px solid #222;
-    background-image: url("/profiles/slave1/images/noise.png");
+    background-image: url("/profiles/slave1/assets/images/noise.png");
 	background-repeat: repeat;
 }
 #logo {
@@ -382,7 +382,7 @@ body.loaded #page {
 	vertical-align: top;
 	padding: 2%;
 	width: 76%;
-	background-image: url("/profiles/slave1/images/noise.png");
+	background-image: url("/profiles/slave1/assets/images/noise.png");
 	background-repeat: repeat;
 }
 
@@ -463,7 +463,7 @@ label {
     width: 5px;
 }
 .progress .filled {
-    background: url("/profiles/slave1/images/loading.png") repeat scroll 0 0 #0072b9;
+    background: url("/profiles/slave1/assets/images/loading.png") repeat scroll 0 0 #0072b9;
 }
 
 /*-- Canvas --*/
