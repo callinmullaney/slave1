@@ -87,12 +87,12 @@ function install_from_db_form($form, &$form_state, &$install_state) {
     '#parents' => array('quickstart'),
   );
   $form['quickstart']['quick_options'] = array(
-  	'#type' => 'container',
-  	'#states' => array(
-    	'visible' => array(
-      		'input[name="quickstart"]' => array('value' => 'quick'),
-    	),
-  	),
+    '#type' => 'container',
+    '#states' => array(
+      'visible' => array(
+          'input[name="quickstart"]' => array('value' => 'quick'),
+      ),
+    ),
   );
   $form['quickstart']['quick_options']['features'] = array(
     '#title' => t('Additional Functionality'),
@@ -117,12 +117,12 @@ function install_from_db_form($form, &$form_state, &$install_state) {
     '#parents' => array('quickstart'),
   );
   $form['quickstart']['standard_options'] = array(
-  	'#type' => 'container',
-  	'#states' => array(
-    	'visible' => array(
-      		'input[name="quickstart"]' => array('value' => 'standard'),
-    	),
-  	),
+    '#type' => 'container',
+    '#states' => array(
+      'visible' => array(
+          'input[name="quickstart"]' => array('value' => 'standard'),
+      ),
+    ),
   );
   $form['quickstart']['standard_options']['features'] = array(
     '#title' => t('Additional Functionality'),
