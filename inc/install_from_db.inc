@@ -53,7 +53,7 @@ function install_from_db_form($form, &$form_state, &$install_state) {
   $profile = $install_state['parameters']['profile'];
   // find database dump in the /db folder within the profile
   // TODO: support different database dump formats
-  $filename = DRUPAL_ROOT . '/profiles/' . $profile . '/assets/db/' . $profile . '.mysql';
+  $filename = DRUPAL_ROOT . '/profiles/' . $profile . '/assets/db/' . $profile . '.sql';
 
   $conn = Database::getConnection('default');
   if (!file_exists($filename) || !$conn || ($conn->driver() !== 'mysql')) {
@@ -82,16 +82,68 @@ function install_from_db_form($form, &$form_state, &$install_state) {
     '#type' => 'radio',
     '#value' => 'quick',
     '#return_value' => 'quick',
-    '#title' => st('Quick installation'),
-    '#description' => st('Quickly install using a predefined database dump. (recommended)'),
+    '#title' => st('Simple Marketing Site'),
+    '#description' => st('Quickly install using a predefined database dump.'),
     '#parents' => array('quickstart'),
   );
+  $form['quickstart']['quick_options'] = array(
+  	'#type' => 'container',
+  	'#states' => array(
+    	'visible' => array(
+      		'input[name="quickstart"]' => array('value' => 'quick'),
+    	),
+  	),
+  );
+  $form['quickstart']['quick_options']['features'] = array(
+    '#title' => t('Additional Functionality'),
+    '#type' => 'checkboxes',
+    '#description' => t('Enables custom features during the install process.'),
+    '#options' => array(
+      'news' => t('News/Blog'),
+      'events' => t('Events'),
+      'locations' => t('Locations'),
+      'jobs' => t('Jobs'),
+      'testimonial' => t('Testimonials'),
+      'slideshow' => t('Slideshow'),
+    ),
+  );
+
   $form['quickstart']['standard'] = array(
     '#type' => 'radio',
-    '#value' => 'quick',
+    '#value' => 'standard',
     '#return_value' => 'standard',
-    '#title' => st('Standard installation'),
-    '#description' => st('Install using the full Drupal process.  This is slower.'),
+    '#title' => st('Custom Site'),
+    '#description' => st('Install using the full Drupal process. This has minimal configuration but is great starting point for custom Drupal sites.'),
+    '#parents' => array('quickstart'),
+  );
+  $form['quickstart']['standard_options'] = array(
+  	'#type' => 'container',
+  	'#states' => array(
+    	'visible' => array(
+      		'input[name="quickstart"]' => array('value' => 'standard'),
+    	),
+  	),
+  );
+  $form['quickstart']['standard_options']['features'] = array(
+    '#title' => t('Additional Functionality'),
+    '#type' => 'checkboxes',
+    '#description' => t('Enables custom features during the install process.'),
+    '#options' => array(
+      'news' => t('News/Blog'),
+      'events' => t('Events'),
+      'locations' => t('Locations'),
+      'jobs' => t('Jobs'),
+      'testimonial' => t('Testimonials'),
+      'slideshow' => t('Slideshow'),
+    ),
+  );
+
+  $form['quickstart']['commerce'] = array(
+    '#type' => 'radio',
+    '#value' => 'commerce',
+    '#return_value' => 'commerce',
+    '#title' => st('Get Started with Commerce'),
+    '#description' => st('A kickstart for Drupal Commerce'),
     '#parents' => array('quickstart'),
   );
   $form['actions'] = array('#type' => 'actions');
