@@ -1,16 +1,23 @@
-jQuery(document).ready(function() {
-  jQuery('select').selectbox();
+(function ($, Drupal) {
 
-  jQuery("#edit-driver-mysql").parent().addClass('active');
-  
-  if (jQuery(".form-item-driver").click()) {
-    jQuery(this).toggleClass('active');
-  }
+$(document).ready(function() {
+  $('select').selectbox();
+
+  $("#edit-driver-mysql").parent().addClass('active');
+
+  // database active tab toggle
+  $('.form-item-driver').click(function() {
+    if (! $(this).find('input').is(':checked')) {
+      $('.form-item-driver').removeClass('active');
+      $(this).addClass('active');
+      $(this).find('input').prop('checked', true);
+    }
+  });
 
 });
 
-jQuery(window).load(function() {
-  jQuery('body').addClass('loaded');
+$(window).load(function() {
+  $('body').addClass('loaded');
 });
 
 Drupal.behaviors.boushh = {
@@ -49,3 +56,5 @@ Drupal.behaviors.boushh = {
     
     }
   };
+
+})(jQuery, Drupal);
