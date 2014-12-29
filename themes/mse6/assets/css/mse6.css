@@ -2,9 +2,9 @@
 body {
 	background-color: #242424;
 	color: #fafafa;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Lato', 'Helvetica Neue', helvetica, sans-serif;
 	font-weight: 300;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1.4rem;
 	position: relative;
 	width: 100%;
@@ -36,6 +36,21 @@ canvas {
 	-moz-transition: all .3s ease-out 0.5s;
 	-o-transition: all .3s ease-out 0.5s;
 	transition: all .3s ease-out 0.5s;
+}
+table {
+	border: 1px solid #111;
+}
+tbody {
+	border-top: 0;
+}
+
+::selection {
+  background: #bbb; /* WebKit/Blink Browsers */
+  color: #000;
+}
+::-moz-selection {
+  background: #bbb; /* Gecko Browsers */
+  color: #000;
 }
 
 /*--- Buttons ---*/
@@ -83,9 +98,7 @@ a:hover {
 
 
 /*--- Forms ---*/
-input[type=text],
-input[type=textarea],
-input[type=password] {
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
 	border: 1px solid #222;
 	border-bottom: 2px solid #666;
 	font-weight: 400;
@@ -94,18 +107,25 @@ input[type=password] {
 	background-color: #2b2b2b;
 	color: #ccc;
 	box-shadow: 0 0px 1px #111;
+	font-size: 15px;
+	font-family: 'Lato', 'Helvetica Neue', helvetica, sans-serif;
 }
-input[type=text]:focus,
-input[type=textarea]:focus,
-input[type=password]:focus {
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, textarea:focus {
 	border: 1px solid #222;
 	border-bottom: 2px solid #0DC100;
 	padding: 10px;
 	background-color: #222;
 	color: #fff;
-	box-shadow: 0 1px 5px #222222;
 	outline: none;
 }
+
+input[type="submit"] {
+	font-family: 'Lato', 'Helvetica Neue', helvetica, sans-serif;
+}
+input[type="submit"]:focus {
+	outline: none;
+}
+
 select {
 	color: #222;
 	display: block;
@@ -196,11 +216,13 @@ ul.sbOptions li + li a:hover {
 }
 .form-item .description {
     color: #CCCCCC;
-    font-size: 16px;
+    font-size: 14px;
     margin: 0 18px;
 }
 
-
+table.system-status-report {
+	margin-bottom: 20px;
+}
 table.system-status-report td.status-icon {
     padding-right: 5px;
     width: 16px;
@@ -245,6 +267,9 @@ div.error.merge-down, table tr.error.merge-down {
 }
 div.error.merge-up, table tr.error.merge-up {
     border-bottom: 1px solid #CF0711;
+}
+div.error *:last-child {
+	margin-bottom: 0;
 }
 table.system-status-report tr.merge-up td {
     font-size: 16px;
@@ -314,18 +339,18 @@ body.loaded #page {
 	margin: -50px 0 0 -50px;
     max-width: 340px;
 }
-.task-list {
+ol.task-list {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
-.task-list li {
+ol.task-list li {
 	display: block;
 	position: relative;
 	padding: 10px 15px;
 	border-bottom: 1px solid #222;
 }
-.task-list li:before {
+ol.task-list li:before {
 	font-family: 'FontAwesome';
 	-moz-font-feature-settings: normal;
     -moz-font-language-override: normal;
@@ -345,14 +370,14 @@ body.loaded #page {
     content: "\f10c";
 	color: #555;
 }
-.task-list li.done {
+ol.task-list li.done {
 	color: #777;
 }
-.task-list li.done:before {
+ol.task-list li.done:before {
 	content: "\f058";
 	color: #0DC100;
 }
-.task-list li.done + li.done:after {
+ol.task-list li.done + li.done:after {
 	border: 1px solid #222;
     border-radius: 5px;
     content: "English";
@@ -364,13 +389,14 @@ body.loaded #page {
     right: 8px;
     top: 8px;
 }
-.task-list li.done + li.done + li.done:after {
+ol.task-list li.done + li.done + li.done:after {
 	display: none; 
 }
-.task-list li.active {
-	
+ol.task-list li.active {
+	font-weight: 300;
+	color: #E8E001;
 }
-.task-list li.active:before {
+ol.task-list li.active:before {
 	color: #E8E001;
 }
 
@@ -439,6 +465,12 @@ body.loaded #page {
 	border-top: none;
 }
 
+
+.form-wrapper > *:last-child,
+.fieldset-wrapper > *:last-child {
+	margin-bottom: 0;
+}
+
 /*-- Submit Buttons --*/
 #edit-actions {
 	float: right;
@@ -454,6 +486,19 @@ label {
 	text-transform: uppercase;
 	letter-spacing: .02em;
 	font-weight: 500;
+}
+
+/*-- Fieldsets --*/
+fieldset {
+	border-color: #222;
+	padding: 15px 20px;
+}
+.fieldset-description {
+	font-size: 14px;
+}
+
+div.error p.error {
+	color: #ed541d;
 }
 
 /*-- Loading --*/

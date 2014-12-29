@@ -21,7 +21,7 @@
 
     <?php if ($sidebar_first): ?>
       <div id="sidebar-first" class="sidebar">
-          <img id="logo" src="/profiles/slave1/images/logo_slave1.png" alt="<?php print $site_name ?>" />
+          <img id="logo" src="/profiles/slave1/assets/images/logo_slave1.png" alt="<?php print $site_name ?>" />
         <?php print $sidebar_first ?>
       </div>
     <?php endif; ?>
