@@ -1,5 +1,12 @@
 jQuery(document).ready(function() {
-  jQuery("select").selectbox();
+  jQuery('select').selectbox();
+
+  jQuery("#edit-driver-mysql").parent().addClass('active');
+  
+  if (jQuery(".form-item-driver").click()) {
+    jQuery(this).toggleClass('active');
+  }
+
 });
 
 jQuery(window).load(function() {

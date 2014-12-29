@@ -1,6 +1,13 @@
 <?php
 
 /**
+ * @file
+ * Install profile for Open Atrium.
+ */
+
+include_once 'inc/install_from_db.inc';
+
+/**
  * Force-set a theme at any point during the execution of the request.
  *
  * Drupal doesn't give us the option to set the theme during the installation
@@ -30,6 +37,7 @@ function slave1_locale_selection(&$install_state){
 function slave1_install_tasks_alter(&$tasks, $install_state) {
   _slave1_set_theme('mse6');
   $tasks['install_select_locale']['function'] = 'slave1_locale_selection';
+  install_from_db_install_tasks_alter($tasks, $install_state);
 }
 
 /**
