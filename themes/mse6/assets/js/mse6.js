@@ -14,12 +14,64 @@ $(document).ready(function() {
   });
 
   // Installation Method
-  $('.option_wrapper label.option').click(function() {
+  $('.option_wrapper #edit-quickstart--2 + label').click(function() {
     if (! $(this).find('.option_wrapper input.form-radio').is(':checked')) {
       $('.option_wrapper').removeClass('active');
       $(this).parent().parent().addClass('active');
+
+      if ($('input.form-radio').is(':checked')) {
+        $(this).addClass('active');
+      }
+      else {
+        $(this).removeClass('active');
+      }
+
     }
   });
+  $('.option_wrapper #edit-quickstart--3 + label').click(function() {
+    if (! $(this).find('.option_wrapper input.form-radio').is(':checked')) {
+      $('.option_wrapper').removeClass('active');
+      $(this).parent().parent().addClass('active');
+
+      if ($('input.form-radio').is(':checked')) {
+        $(this).addClass('active');
+      }
+      else {
+        $(this).removeClass('active');
+      }
+
+    }
+  });
+  $('.option_wrapper #edit-quickstart--4 + label').click(function() {
+    if (! $(this).find('.option_wrapper input.form-radio').is(':checked')) {
+      $('.option_wrapper').removeClass('active');
+      $(this).parent().parent().addClass('active');
+
+      if ($('input.form-radio').is(':checked')) {
+        $(this).addClass('active');
+      }
+      else {
+        $(this).removeClass('active');
+      }
+
+    }
+  });
+
+  $('label.option').click(function() {
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+    }
+    else {
+      $(this).addClass('active');
+    }
+  });
+  
+  if ( $('input.form-radio').is(':checked') ) {
+    $(this).addClass('active');
+  }
+  else {
+     $('.option_wrapper label.option').removeClass('active');
+  }
 
 });
 

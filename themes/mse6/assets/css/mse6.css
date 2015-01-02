@@ -32,6 +32,9 @@ label {
 	-o-transition: all .3s;
 	transition: all .3s;
 }
+label {
+	cursor: pointer;
+}
 #page
 canvas {
 	-webkit-transition: all .3s ease-out 0.5s;
@@ -259,6 +262,7 @@ ul.sbOptions li + li a:hover {
 }
 .form-item-mysql-database {
 	padding-bottom: 40px;
+	margin-bottom: 10px;
 	border-bottom: 1px solid #222;
 }
 .form-item-mysql-username,
@@ -267,7 +271,7 @@ ul.sbOptions li + li a:hover {
 	position: relative;
 	float: left;
 	width: 50%;
-	padding: 2%;
+	padding: 2% 2% 2% 0%;
 	margin-top: 0;
     box-sizing: border-box;
 }
@@ -307,7 +311,7 @@ ul.sbOptions li + li a:hover {
 }
 
 .option_wrapper {
-	background: none repeat scroll 0 0 #262626;
+	background: none repeat scroll 0 0 #2a2a2a;
     border-radius: 5px;
     box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.25) inset;
     box-sizing: border-box;
@@ -323,6 +327,9 @@ ul.sbOptions li + li a:hover {
 	-o-transition: all .3s;
 	transition: all .3s;
 }
+.option_wrapper .form-item {
+	margin-bottom: 0;
+}
 .option_wrapper.active {
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4) inset;
 	border: 1px solid #0dc100;
@@ -335,6 +342,8 @@ ul.sbOptions li + li a:hover {
 	-moz-font-feature-settings: normal;
     -moz-font-language-override: normal;
     display: block;
+    position: absolute;
+    left: 38%;
     font-family: FontAwesome;
     font-size: 90%;
     font-size-adjust: none;
@@ -373,8 +382,10 @@ ul.sbOptions li + li a:hover {
 }
 .option_wrapper .form-item-quickstart > input + label {
 	padding: 100px 0 5px;
-	margin: -100px 0 -5px;
+	margin: -20px 0 10px;
 	cursor: pointer;
+	text-align: center;
+	font-size: 18px;
 }
 .option_wrapper .form-item-quickstart > input + label:hover {
 	color: #0dc100;
@@ -388,6 +399,74 @@ ul.sbOptions li + li a:hover {
 	display: block;
 	position: relative;
 	margin: 0;
+	background-color: #222;
+	padding: 10px;
+	border-radius: 3px;
+	color: #ddd;
+	letter-spacing: 0.01em;
+}
+.option_wrapper .form-type-radio .description:before, 
+.option_wrapper .form-type-checkbox .description:before {
+	content: "";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 8px 8px 8px;
+	border-color: transparent transparent #222;
+    position: absolute;
+    top: -8px;
+    left: 48%;
+}
+.option_wrapper #edit-quick {
+	border-top: 1px solid #222;
+    margin: 15px 0 0;
+    padding: 10px 10px 0;
+}
+.option_wrapper #edit-quick input.form-radio { display: none; }
+.option_wrapper #edit-quick .form-item { margin: 0; }
+.option_wrapper #edit-quick .form-item #edit-platform-options {
+	margin: 10px 0 0;
+}
+.option_wrapper #edit-quick label.option {
+	padding: 5px 10px 5px 30px;
+	background-color: #333;
+	border: 2px solid #222;
+	border-radius: 5px;
+	margin: 0 0 10px;
+}
+.option_wrapper #edit-quick label.option:hover,
+.option_wrapper #edit-quick label.option.active {
+	border: 2px solid #0dc100;
+	background-color: #222;
+}
+.option_wrapper #edit-quick label.option:before {
+	font-family: 'FontAwesome';
+	-moz-font-feature-settings: normal;
+    -moz-font-language-override: normal;
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    font-family: FontAwesome;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-rendering: auto;
+    font-size: 17px;
+    margin: 0 auto;
+    content: "\f00c";
+    color: #222;
+    -webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+.option_wrapper #edit-quick label.option:hover:before,
+.option_wrapper #edit-quick label.active.option:before {
+	color: #0dc100;
 }
 
 table.system-status-report {
@@ -622,15 +701,15 @@ ol.task-list li.active:before {
     width: 50%;
 }
 .form-item-driver .form-radios .form-item-driver.active {
-	border-top: 2px solid #222;
+	border-top: 2px solid #111;
 }
 .form-item-driver .form-radios .form-item-driver label {
-	background-color: #222;
+	background-color: #111;
 	padding: 3% 0;
 	margin: 2px 0 0;
 	display: block;
 	cursor: pointer;
-	border: 2px solid #222;
+	border: 2px solid #111;
     border-top: none;
 	border-bottom: none;
 }
@@ -689,7 +768,6 @@ ol.task-list li.active:before {
 /*-- Labels --*/
 label {
 	font-size: 13px;
-	text-transform: uppercase;
 	letter-spacing: .02em;
 	font-weight: 500;
 }
