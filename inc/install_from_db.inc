@@ -78,45 +78,74 @@ function install_from_db_form($form, &$form_state, &$install_state) {
     $form_state['input']['quickstart'] = 'quick';
   }
 
-  $form['quickstart']['quick'] = array(
+  /*--- Option Wrappers ---*/
+  $form['quickstart']['option_wrapper_1'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+      'class' => array(
+        'option_wrapper',
+      ),
+    ),
+  );
+  $form['quickstart']['option_wrapper_2'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+      'class' => array(
+        'option_wrapper',
+      ),
+    ),
+  );
+  $form['quickstart']['option_wrapper_3'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+      'class' => array(
+        'option_wrapper',
+      ),
+    ),
+  );
+
+/*--- Install options ---*/
+  /*--Option 1---*/
+  $form['quickstart']['option_wrapper_1']['quick'] = array(
     '#type' => 'radio',
     '#value' => 'quick',
     '#return_value' => 'quick',
-    '#title' => st('Simple Marketing Site'),
-    '#description' => st('Quickly install using a predefined database dump.'),
+    '#title' => st('Ready for lift-off!'),
+    '#description' => st('Quick install using a predefined database.'),
     '#parents' => array('quickstart'),
   );
-  $form['quickstart']['quick_options'] = array(
+  $form['quickstart']['option_wrapper_1']['quick_options'] = array(
     '#type' => 'container',
+    '#parents' => array('quick'),
     '#states' => array(
       'visible' => array(
           'input[name="quickstart"]' => array('value' => 'quick'),
       ),
     ),
   );
-  $form['quickstart']['quick_options']['features'] = array(
-    '#title' => t('Additional Functionality'),
-    '#type' => 'checkboxes',
-    '#description' => t('Enables custom features during the install process.'),
-    '#options' => array(
-      'news' => t('News/Blog'),
-      'events' => t('Events'),
-      'locations' => t('Locations'),
-      'jobs' => t('Jobs'),
-      'testimonial' => t('Testimonials'),
-      'slideshow' => t('Slideshow'),
-    ),
+  $platform_options = array(
+    'pantheon_hosting' => t('Pantheon Hosting'),
+    'standard_hosting' => t('Standard Hosting'),
+  );
+  $form['quickstart']['option_wrapper_1']['quick_options']['platform_options'] = array(
+    '#type' => 'radios',
+    '#title' => 'Select the hosting platform that this site will be installed on.',
+    '#default_value' => t('No'),
+    '#options' => $platform_options,
+    '#required' => FALSE,
   );
 
-  $form['quickstart']['standard'] = array(
+  /*--Option 2---*/
+  $form['quickstart']['option_wrapper_2']['standard'] = array(
     '#type' => 'radio',
     '#value' => 'standard',
     '#return_value' => 'standard',
+    '#default_value' => 'standard',
     '#title' => st('Custom Site'),
     '#description' => st('Install using the full Drupal process. This has minimal configuration but is great starting point for custom Drupal sites.'),
     '#parents' => array('quickstart'),
   );
-  $form['quickstart']['standard_options'] = array(
+  $form['quickstart']['option_wrapper_2']['standard_options'] = array(
     '#type' => 'container',
     '#states' => array(
       'visible' => array(
@@ -124,7 +153,11 @@ function install_from_db_form($form, &$form_state, &$install_state) {
       ),
     ),
   );
-  $form['quickstart']['standard_options']['features'] = array(
+  $feature_options = array(
+    'pantheon_hosting' => t('Pantheon Hosting'),
+    'standard_hosting' => t('Standard Hosting'),
+  );
+  $form['quickstart']['option_wrapper_2']['standard_options']['features'] = array(
     '#title' => t('Additional Functionality'),
     '#type' => 'checkboxes',
     '#description' => t('Enables custom features during the install process.'),
@@ -138,7 +171,8 @@ function install_from_db_form($form, &$form_state, &$install_state) {
     ),
   );
 
-  $form['quickstart']['commerce'] = array(
+  /*--Option 3---*/
+  $form['quickstart']['option_wrapper_3']['commerce'] = array(
     '#type' => 'radio',
     '#value' => 'commerce',
     '#return_value' => 'commerce',

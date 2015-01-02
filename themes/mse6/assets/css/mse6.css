@@ -12,6 +12,7 @@ body {
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
+	min-width: 900px;
 }
 
 img {
@@ -24,7 +25,8 @@ a,
 input,
 li,
 button,
-.form-item-driver .form-radios .form-item-driver {
+.form-item-driver .form-radios .form-item-driver,
+label {
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	-o-transition: all .3s;
@@ -62,9 +64,38 @@ tbody {
 	text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	font-weight: 400;
 	cursor: pointer;
+	border-radius: 5px;
 }
 .form-submit:hover {
 	background: #198E0C;
+}
+
+#edit-save,
+#edit-submit {
+	padding-right: 45px;
+	padding-left: 10px;
+}
+#edit-actions:before {
+	font-family: 'FontAwesome';
+	-moz-font-feature-settings: normal;
+    -moz-font-language-override: normal;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 54px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-rendering: auto;
+    margin: 0 10px 0 0;
+    position: absolute;
+    top: -5px;
+    right: -16px;
+    float: right;
+    content: "\f0a9";
+	color: #198E0C;
 }
 
 
@@ -95,28 +126,35 @@ a:hover {
 	outline: none;
 	text-decoration: none;
 }
-
+form {
+	position: relative;
+	padding: 60px 0 0;
+}
 
 /*--- Forms ---*/
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
-	border: 1px solid #222;
-	border-bottom: 2px solid #666;
+	border: 4px solid #222;
+	border-radius: 8px;
 	font-weight: 400;
 	margin: .5rem 0;
 	padding: 10px;
-	background-color: #2b2b2b;
-	color: #ccc;
-	box-shadow: 0 0px 1px #111;
+	display: block;
+	background-color: #e6e6e6;
+	color: #555;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 	font-size: 15px;
+	box-sizing: border-box;
 	font-family: 'Lato', 'Helvetica Neue', helvetica, sans-serif;
+	position: relative;
+	width: 100%;
 }
 input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, textarea:focus {
-	border: 1px solid #222;
-	border-bottom: 2px solid #0DC100;
+	border: 4px solid #0DC100;
 	padding: 10px;
-	background-color: #222;
-	color: #fff;
+	background-color: #fff;
 	outline: none;
+	color: #222;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
 }
 
 input[type="submit"] {
@@ -124,6 +162,10 @@ input[type="submit"] {
 }
 input[type="submit"]:focus {
 	outline: none;
+}
+input#edit-mysql-database {
+	display: inline;
+	width: 50%;
 }
 
 select {
@@ -213,11 +255,139 @@ ul.sbOptions li + li a:hover {
 .form-actions {
     margin-top: 1rem;
     margin-bottom: 2rem;
+    position: relative;
 }
-.form-item .description {
-    color: #CCCCCC;
+.form-item-mysql-database {
+	padding-bottom: 40px;
+	border-bottom: 1px solid #222;
+}
+.form-item-mysql-username,
+.form-item-mysql-password {
+	display: block;
+	position: relative;
+	float: left;
+	width: 50%;
+	padding: 2%;
+	margin-top: 0;
+    box-sizing: border-box;
+}
+.form-item input + .description {
+    background-color: #bbb;
+    border-radius: 4px;
+    color: #333;
+    display: inline-block;
     font-size: 14px;
-    margin: 0 18px;
+    margin: 0 10px 0 0;
+    padding: 12px 15px;
+    position: relative;
+    float: right;
+    visibility: hidden;
+    z-index: 10;
+    width: 47%;
+    box-sizing: border-box;
+    -webkit-transition: all .5s ease-out 0.5s;
+	-moz-transition: all .5s ease-out 0.5s;
+	-o-transition: all .5s ease-out 0.5s;
+	transition: all .5s ease-out 0.5s;
+}
+.form-item input:focus + .description {
+	visibility: visible;
+	margin: 0;
+}
+.form-item input + .description:before {
+	content: "";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px 8px 8px 0;
+	border-color: transparent #bbbbbb transparent;
+    position: absolute;
+    top: 16px;
+    left: -8px;
+}
+
+.option_wrapper {
+	background: none repeat scroll 0 0 #262626;
+    border-radius: 5px;
+    box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.25) inset;
+    box-sizing: border-box;
+    border: 1px solid #232323;
+    display: block;
+    float: left;
+    margin: 1%;
+    padding: 4% 2%;
+    position: relative;
+    width: 31%;
+    -webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+.option_wrapper.active {
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4) inset;
+	border: 1px solid #0dc100;
+}
+.option_wrapper:hover {
+
+}
+.option_wrapper:before {
+	font-family: 'FontAwesome';
+	-moz-font-feature-settings: normal;
+    -moz-font-language-override: normal;
+    display: block;
+    font-family: FontAwesome;
+    font-size: 90%;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-rendering: auto;
+    font-size: 70px;
+    text-align: center;
+    margin: 0 auto;
+    content: "\f135";
+    color: #ccc;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    -webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+.option_wrapper:hover:before {
+	font-size: 80px
+}
+.option_wrapper.active:before {
+	color: #0dc100;
+	font-size: 80px
+}
+#edit-option-wrapper-2:before{
+	content: "\f1c0";
+}
+#edit-option-wrapper-3:before {
+	content: "\f155";
+}
+.option_wrapper .form-item-quickstart > input {
+	display: none;
+}
+.option_wrapper .form-item-quickstart > input + label {
+	padding: 100px 0 5px;
+	margin: -100px 0 -5px;
+	cursor: pointer;
+}
+.option_wrapper .form-item-quickstart > input + label:hover {
+	color: #0dc100;
+}
+.option_wrapper label.option {
+	display: block;
+	position: relative;
+}
+.option_wrapper .form-type-radio .description, 
+.option_wrapper .form-type-checkbox .description {
+	display: block;
+	position: relative;
+	margin: 0;
 }
 
 table.system-status-report {
@@ -410,6 +580,14 @@ ol.task-list li.active:before {
 	width: 76%;
 	background-image: url("/profiles/slave1/assets/images/noise.png");
 	background-repeat: repeat;
+	position: relative;
+}
+#content #install-settings-form label {
+	font-size: 24px;
+}
+#content #install-settings-form #edit-mysql label,
+#content #install-settings-form #edit-driver label {
+	font-size: 13px;
 }
 
 .fullScreen {
@@ -424,8 +602,8 @@ ol.task-list li.active:before {
 } 
 .form-item-driver .form-radios {
 	box-sizing: border-box;
-	border: 4px solid #161616;
-    border-radius: 10px;
+	border: none;
+    border-radius: 0;
     clear: both;
     display: table;
     margin: 2% 0 0;
@@ -437,17 +615,39 @@ ol.task-list li.active:before {
 	display: none;
 }
 .form-item-driver .form-radios .form-item-driver {
-	background-color: #222;
+	background-color: transparent;
     display: table-cell;
-    padding: 2%;
     text-align: center;
     text-shadow: 0 1px 3px #222;
     width: 50%;
 }
 .form-item-driver .form-radios .form-item-driver.active {
-	background-color: #0dc100;
+	border-top: 2px solid #222;
 }
-.form-item-driver .form-radios .form-item-driver.active:before {}
+.form-item-driver .form-radios .form-item-driver label {
+	background-color: #222;
+	padding: 3% 0;
+	margin: 2px 0 0;
+	display: block;
+	cursor: pointer;
+	border: 2px solid #222;
+    border-top: none;
+	border-bottom: none;
+}
+.form-item-driver .form-radios .form-item-driver:hover label {
+	background-color: #111;
+	border: 2px solid #111;
+	border-top: none;
+	border-bottom: none;
+	color: #0dc100;
+}
+.form-item-driver .form-radios .form-item-driver.active label {
+	color: #0dc100;
+	background-color: #383838;
+	border-bottom: none;
+	margin: 0;
+}
+.form-item-driver .form-radios .form-item-driver.active label:before {}
 
 .form-item-driver .description {
 	position: absolute;
@@ -459,9 +659,9 @@ ol.task-list li.active:before {
 #install-settings-form #edit-mysql,
 #install-settings-form #edit-sqlite {
 	padding: 2%;
-	margin: 0 2%;
+	margin: 0;
 	background-color: #383838;
-	border: 4px solid #161616;
+	border: 2px solid #161616;
 	border-top: none;
 }
 
@@ -473,7 +673,13 @@ ol.task-list li.active:before {
 
 /*-- Submit Buttons --*/
 #edit-actions {
-	float: right;
+	display: block;
+    float: right;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
 }
 .form-submit {
 	font-size: 15px;
@@ -490,11 +696,15 @@ label {
 
 /*-- Fieldsets --*/
 fieldset {
-	border-color: #222;
+	border: 1px solid #222;
 	padding: 15px 20px;
 }
 .fieldset-description {
 	font-size: 14px;
+}
+#edit-mysql--2 input {
+	width: 50%;
+	display: inline-block;
 }
 
 div.error p.error {

@@ -10,7 +10,14 @@ $(document).ready(function() {
     if (! $(this).find('input').is(':checked')) {
       $('.form-item-driver').removeClass('active');
       $(this).addClass('active');
-      $(this).find('input').prop('checked', true);
+    }
+  });
+
+  // Installation Method
+  $('.option_wrapper label.option').click(function() {
+    if (! $(this).find('.option_wrapper input.form-radio').is(':checked')) {
+      $('.option_wrapper').removeClass('active');
+      $(this).parent().parent().addClass('active');
     }
   });
 
