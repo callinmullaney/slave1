@@ -21,7 +21,7 @@
 
     <?php if ($sidebar_first): ?>
       <div id="sidebar-first" class="sidebar">
-          <img id="logo" src="/profiles/slave1/assets/images/logo_slave1.png" alt="<?php print $site_name ?>" />
+          <img id="logo" src="<?php print drupal_get_path('theme', 'mse6') . '/assets/images/logo_slave1.png' ?>" alt="<?php print $site_name ?>" />
         <?php print $sidebar_first ?>
       </div>
     <?php endif; ?>
@@ -40,7 +40,7 @@
 
   </div>
 
-  <div class="powered">Powered by MSE-6 Series <img src="/profiles/slave1/themes/mse6/assets/images/logo_mse6.png" alt="MSE-6 Series" /></div>
+  <div class="powered">Powered by MSE-6 Series <img src="<?php print drupal_get_path('theme', 'mse6') . '/assets/images/logo_mse6.png' ?>" alt="MSE-6 Series" /></div>
 
   <?php print $page_bottom; ?>
 

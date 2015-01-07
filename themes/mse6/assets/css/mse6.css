@@ -330,6 +330,9 @@ ul.sbOptions li + li a:hover {
 .option_wrapper .form-item {
 	margin-bottom: 0;
 }
+.option_wrapper:hover {
+	border: 1px solid #e8e001;
+}
 .option_wrapper.active {
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4) inset;
 	border: 1px solid #0dc100;
@@ -377,7 +380,9 @@ ul.sbOptions li + li a:hover {
 #edit-option-wrapper-3:before {
 	content: "\f155";
 }
-.option_wrapper .form-item-quickstart > input {
+.option_wrapper .form-item-quickstart > input,
+#edit-standard-options .form-type-checkbox > input,
+#edit-install-options .form-type-radio > input {
 	display: none;
 }
 .option_wrapper .form-item-quickstart > input + label {
@@ -395,7 +400,8 @@ ul.sbOptions li + li a:hover {
 	position: relative;
 }
 .option_wrapper .form-type-radio .description, 
-.option_wrapper .form-type-checkbox .description {
+.option_wrapper .form-type-checkbox .description,
+#edit-install-options .form-type-radio .description {
 	display: block;
 	position: relative;
 	margin: 0;
@@ -406,7 +412,8 @@ ul.sbOptions li + li a:hover {
 	letter-spacing: 0.01em;
 }
 .option_wrapper .form-type-radio .description:before, 
-.option_wrapper .form-type-checkbox .description:before {
+.option_wrapper .form-type-checkbox .description:before,
+#edit-install-options .form-type-radio .description:before {
 	content: "";
 	width: 0;
 	height: 0;
@@ -417,7 +424,9 @@ ul.sbOptions li + li a:hover {
     top: -8px;
     left: 48%;
 }
-.option_wrapper #edit-quick {
+.option_wrapper #edit-quick,
+#edit-standard-options,
+#edit-install-options {
 	border-top: 1px solid #222;
     margin: 15px 0 0;
     padding: 10px 10px 0;
@@ -427,7 +436,9 @@ ul.sbOptions li + li a:hover {
 .option_wrapper #edit-quick .form-item #edit-platform-options {
 	margin: 10px 0 0;
 }
-.option_wrapper #edit-quick label.option {
+.option_wrapper #edit-quick label.option,
+#edit-standard-options #edit-features label.option,
+#edit-install-options .form-type-radio label.option {
 	padding: 5px 10px 5px 30px;
 	background-color: #333;
 	border: 2px solid #222;
@@ -435,11 +446,19 @@ ul.sbOptions li + li a:hover {
 	margin: 0 0 10px;
 }
 .option_wrapper #edit-quick label.option:hover,
-.option_wrapper #edit-quick label.option.active {
+#edit-standard-options #edit-features label.option:hover,
+#edit-install-options .form-type-radio label.option:hover {
+	border: 2px solid #e8e001;
+}
+.option_wrapper #edit-quick label.option.active,
+#edit-standard-options #edit-features label.option.active,
+#edit-install-options .form-type-radio label.option.active {
 	border: 2px solid #0dc100;
 	background-color: #222;
 }
-.option_wrapper #edit-quick label.option:before {
+.option_wrapper #edit-quick label.option:before,
+#edit-standard-options #edit-features label.option:before,
+#edit-install-options .form-type-radio label.option:before {
 	font-family: 'FontAwesome';
 	-moz-font-feature-settings: normal;
     -moz-font-language-override: normal;
@@ -465,7 +484,11 @@ ul.sbOptions li + li a:hover {
 	transition: all .3s;
 }
 .option_wrapper #edit-quick label.option:hover:before,
-.option_wrapper #edit-quick label.active.option:before {
+.option_wrapper #edit-quick label.active.option:before,
+#edit-standard-options #edit-features label.option:hover:before,
+#edit-standard-options #edit-features label.active.option:before,
+#edit-install-options .form-type-radio label.option:hover:before,
+#edit-install-options .form-type-radio label.option.active:before {
 	color: #0dc100;
 }
 
@@ -581,7 +604,7 @@ body.loaded #page {
     position: relative;
     width: 24%;
     border-right: 1px solid #222;
-    background-image: url("/profiles/slave1/assets/images/noise.png");
+    background-image: url("profiles/slave1/themes/mse6/assets/images/noise.png");
 	background-repeat: repeat;
 }
 #logo {
@@ -657,7 +680,7 @@ ol.task-list li.active:before {
 	vertical-align: top;
 	padding: 2%;
 	width: 76%;
-	background-image: url("/profiles/slave1/assets/images/noise.png");
+	background-image: url("/profiles/slave1/themes/mse6/assets/images/noise.png");
 	background-repeat: repeat;
 	position: relative;
 }
@@ -796,7 +819,7 @@ div.error p.error {
     width: 5px;
 }
 .progress .filled {
-    background: url("/profiles/slave1/assets/images/loading.png") repeat scroll 0 0 #0072b9;
+    background: url("/profiles/slave1/themes/mse6/assets/images/loading.png") repeat scroll 0 0 #0072b9;
 }
 
 /*-- Canvas --*/

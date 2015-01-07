@@ -53,7 +53,7 @@ function install_from_db_form($form, &$form_state, &$install_state) {
   $profile = $install_state['parameters']['profile'];
   // find database dump in the /db folder within the profile
   // TODO: support different database dump formats
-  $filename = DRUPAL_ROOT . '/profiles/' . $profile . '/assets/db/' . $profile . '.sql';
+  $filename = DRUPAL_ROOT . '/profiles/' . $profile . '/db/' . $profile . '.sql';
 
   $conn = Database::getConnection('default');
   if (!file_exists($filename) || !$conn || ($conn->driver() !== 'mysql')) {
@@ -176,10 +176,33 @@ function install_from_db_form($form, &$form_state, &$install_state) {
     '#type' => 'radio',
     '#value' => 'commerce',
     '#return_value' => 'commerce',
+    '#default_value' => 'commerce',
     '#title' => st('Get Started with Commerce'),
     '#description' => st('A kickstart for Drupal Commerce'),
     '#parents' => array('quickstart'),
   );
+  $form['quickstart']['option_wrapper_3']['commerce_options'] = array(
+    '#type' => 'container',
+    '#parents' => array('commerce'),
+    '#states' => array(
+      'visible' => array(
+          'input[name="quickstart"]' => array('value' => 'commerce'),
+      ),
+    ),
+  );
+  $commerce_options = array(
+    'commerce_import' => t('Database import'),
+    'commerce_custom' => t('Custom Installation'),
+  );
+  $form['quickstart']['option_wrapper_3']['commerce_options']['install_options'] = array(
+    '#type' => 'radios',
+    '#title' => 'Select your commerce starting point.',
+    '#default_value' => t('No'),
+    '#options' => $commerce_options,
+    '#required' => FALSE,
+  );
+
+  /*--Submit--*/
   $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] =  array(
     '#type' => 'submit',
