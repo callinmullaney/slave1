@@ -106,34 +106,34 @@ function install_from_db_form($form, &$form_state, &$install_state) {
 
 /*--- Install options ---*/
   /*--Option 1---*/
-  $form['quickstart']['option_wrapper_1']['quick'] = array(
-    '#type' => 'radio',
-    '#value' => 'quick',
-    '#return_value' => 'quick',
-    '#title' => st('Ready for lift-off!'),
-    '#description' => st('Quick install using a predefined database.'),
-    '#parents' => array('quickstart'),
-  );
-  $form['quickstart']['option_wrapper_1']['quick_options'] = array(
-    '#type' => 'container',
-    '#parents' => array('quick'),
-    '#states' => array(
-      'visible' => array(
-          'input[name="quickstart"]' => array('value' => 'quick'),
-      ),
-    ),
-  );
-  $platform_options = array(
-    'pantheon_hosting' => t('Pantheon Hosting'),
-    'standard_hosting' => t('Standard Hosting'),
-  );
-  $form['quickstart']['option_wrapper_1']['quick_options']['platform_options'] = array(
-    '#type' => 'radios',
-    '#title' => 'Select the hosting platform that this site will be installed on.',
-    '#default_value' => t('No'),
-    '#options' => $platform_options,
-    '#required' => FALSE,
-  );
+  // $form['quickstart']['option_wrapper_1']['quick'] = array(
+  //   '#type' => 'radio',
+  //   '#value' => 'quick',
+  //   '#return_value' => 'quick',
+  //   '#title' => st('Ready for lift-off!'),
+  //   '#description' => st('Quick install using a predefined database.'),
+  //   '#parents' => array('quickstart'),
+  // );
+  // $form['quickstart']['option_wrapper_1']['quick_options'] = array(
+  //   '#type' => 'container',
+  //   '#parents' => array('quick'),
+  //   '#states' => array(
+  //     'visible' => array(
+  //         'input[name="quickstart"]' => array('value' => 'quick'),
+  //     ),
+  //   ),
+  // );
+  // $platform_options = array(
+  //   'pantheon_hosting' => t('Pantheon Hosting'),
+  //   'standard_hosting' => t('Standard Hosting'),
+  // );
+  // $form['quickstart']['option_wrapper_1']['quick_options']['platform_options'] = array(
+  //   '#type' => 'radios',
+  //   '#title' => 'Select the hosting platform that this site will be installed on.',
+  //   '#default_value' => t('No'),
+  //   '#options' => $platform_options,
+  //   '#required' => FALSE,
+  // );
 
   /*--Option 2---*/
   $form['quickstart']['option_wrapper_2']['standard'] = array(
@@ -172,35 +172,35 @@ function install_from_db_form($form, &$form_state, &$install_state) {
   );
 
   /*--Option 3---*/
-  $form['quickstart']['option_wrapper_3']['commerce'] = array(
-    '#type' => 'radio',
-    '#value' => 'commerce',
-    '#return_value' => 'commerce',
-    '#default_value' => 'commerce',
-    '#title' => st('Get Started with Commerce'),
-    '#description' => st('A kickstart for Drupal Commerce'),
-    '#parents' => array('quickstart'),
-  );
-  $form['quickstart']['option_wrapper_3']['commerce_options'] = array(
-    '#type' => 'container',
-    '#parents' => array('commerce'),
-    '#states' => array(
-      'visible' => array(
-          'input[name="quickstart"]' => array('value' => 'commerce'),
-      ),
-    ),
-  );
-  $commerce_options = array(
-    'commerce_import' => t('Database import'),
-    'commerce_custom' => t('Custom Installation'),
-  );
-  $form['quickstart']['option_wrapper_3']['commerce_options']['install_options'] = array(
-    '#type' => 'radios',
-    '#title' => 'Select your commerce starting point.',
-    '#default_value' => t('No'),
-    '#options' => $commerce_options,
-    '#required' => FALSE,
-  );
+  // $form['quickstart']['option_wrapper_3']['commerce'] = array(
+  //   '#type' => 'radio',
+  //   '#value' => 'commerce',
+  //   '#return_value' => 'commerce',
+  //   '#default_value' => 'commerce',
+  //   '#title' => st('Get Started with Commerce'),
+  //   '#description' => st('A kickstart for Drupal Commerce'),
+  //   '#parents' => array('quickstart'),
+  // );
+  // $form['quickstart']['option_wrapper_3']['commerce_options'] = array(
+  //   '#type' => 'container',
+  //   '#parents' => array('commerce'),
+  //   '#states' => array(
+  //     'visible' => array(
+  //         'input[name="quickstart"]' => array('value' => 'commerce'),
+  //     ),
+  //   ),
+  // );
+  // $commerce_options = array(
+  //   'commerce_import' => t('Database import'),
+  //   'commerce_custom' => t('Custom Installation'),
+  // );
+  // $form['quickstart']['option_wrapper_3']['commerce_options']['install_options'] = array(
+  //   '#type' => 'radios',
+  //   '#title' => 'Select your commerce starting point.',
+  //   '#default_value' => t('No'),
+  //   '#options' => $commerce_options,
+  //   '#required' => FALSE,
+  // );
 
   /*--Submit--*/
   $form['actions'] = array('#type' => 'actions');
