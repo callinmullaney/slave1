@@ -59,7 +59,6 @@ dependencies[] = special_menu_items
 dependencies[] = strongarm
 dependencies[] = textformatter
 dependencies[] = textformatter_contrib
-dependencies[] = tracking_code
 dependencies[] = advanced_text_formatter
 dependencies[] = token
 dependencies[] = valet
