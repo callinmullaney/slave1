@@ -47,91 +47,109 @@
 <canvas id="processing"></canvas>
 
 <script type="application/processing">
-int fc, num = 300, edge = 0;
-ArrayList ballCollection;
-boolean save = false;
+// Starfield Simulation
+//
+// A simple star field animation based on the information from
+// http://freespace.virgin.net/hugo.elias/graphics/x_stars.htm.
  
-void setup() {
+class Star
+{
+  float x;
+  float y;
+  float z;
+  float velocity;
+  float star_size;
+   
+  float screen_x;
+  float screen_y;
+  float screen_diameter;
+   
+  float old_screen_x;
+  float old_screen_y;
+   
+   
+  // Constructor 
+  Star()
+  {   
+    randomizePosition(true);
+  }
+   
+  void randomizePosition(boolean randomizeZ)
+  {
+    x = random(-width * 2, width * 2);
+    y = random(-height * 2, height * 2);
+     
+    if(randomizeZ)
+      z = random(100, 1000);
+    else
+      z = 1000;
+       
+    velocity = 3; 
+    star_size = random(2, 10);
+  }
+   
+  void update()
+  {
+     
+    if(mousePressed)
+      z -= velocity * 4;
+    else
+      z -= velocity;
+     
+    screen_x = x / z * 100 + width/2;
+    screen_y = y / z * 100 + height/2;
+    screen_diameter = star_size / z * 100;
+     
+    if(screen_x < 0 || screen_x > width || screen_y < 0 || screen_y > height || z < 1)
+    {
+      randomizePosition(false);
+    }
+  }
+   
+  void display()
+  {
+    float star_color = 255 - z * 255 / 1000;
+    fill(star_color);
+    ellipse(screen_x, screen_y, screen_diameter, screen_diameter);  
+  }
+}
+ 
+final int NumStars = 2000;
+ 
+Star[] stars;
+ 
+void setup()
+{
   size(2560, 1440);
-  background(32,32,32);
-  ballCollection = new ArrayList();
-  createStuff();
-}
- 
-void draw() {
-  background(32,32,32);
-  for (int i=0; i<ballCollection.size(); i++) {
-    Ball mb = (Ball) ballCollection.get(i);
-    mb.run();
-  }
-}
- 
-void keyPressed() {
-  fc = frameCount;
-  save = true;
-}
- 
-void createStuff() {
-  ballCollection.clear();
-  for (int i=0; i<num; i++) {
-    PVector org = new PVector(random(edge, width-edge), random(edge, height-edge));
-    float radius = random(10, 80);
-    PVector loc = new PVector(org.x+radius, org.y);
-    float offSet = random(TWO_PI);
-    int dir = 1;
-    float r = random(1);
-    if (r>.5) dir =-1;
-    Ball myBall = new Ball(org, loc, radius, dir, offSet);
-    ballCollection.add(myBall);
+  background(0);
+  noStroke();
+  smooth();
+  colorMode(HSB);
+  textSize(32);
+  frameRate(60);
+   
+  // create stars 
+  stars = new Star[NumStars];
+   
+  for(int index = 0; index < NumStars; index++)
+  {
+    stars[index] = new Star();
   }
 }
  
  
-class Ball {
- 
-  PVector org, loc;
-  float sz = 10;
-  float theta, radius, offSet;
-  int s, dir, d = 120;
- 
-  Ball(PVector _org, PVector _loc, float _radius, int _dir, float _offSet) {
-    org = _org;
-    loc = _loc;
-    radius = _radius;
-    dir = _dir;
-    offSet = _offSet;
-  }
- 
-  void run() {
-    display();
-    move();
-    lineBetween();
-  }
- 
-  void move() {
-    loc.x = org.x + sin(theta+offSet)*radius;
-    loc.y = org.y + cos(theta+offSet)*radius;
-    theta += (0.075/3*dir);
-  }
- 
-  void lineBetween() {
-    for (int i=0; i<ballCollection.size(); i++) {
-      Ball other = (Ball) ballCollection.get(i);
-      float distance = loc.dist(other.loc);
-      if (distance >0 && distance < d) {
-        stroke(80);
-        line(loc.x, loc.y, other.loc.x, other.loc.y);
-      }
-    }
-  }
- 
-  void display() {
-    noStroke();
-    for (int i=0; i<5; i++) {
-      fill(80,80,80);
-      ellipse(loc.x, loc.y, sz, sz);
-    }
-  }
+void draw()
+{
+  background(0);
+   
+  // display framerate
+  fill(255, 255, 255);
+   
+  for(int index = 0; index < NumStars; index++)
+  {
+    stars[index].update();
+    stars[index].display();
+  } 
 }
 </script>
 
