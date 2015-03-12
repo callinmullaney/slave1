@@ -108,6 +108,151 @@ function slave1_install(&$task, $url) {
   // Update the menu router information.
   menu_rebuild();
   
+  // Create an image style for the users pic
+  // Squares Styles
+  $style = image_style_save(array(
+    'name' => 'square_thumbnail',
+    'label' => 'Square - Thumbnail')
+  );
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 150,
+      'height' => 150,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  image_style_flush($style);
+
+  $style = image_style_save(array(
+    'name' => 'square_medium',
+    'label' => 'Square - Medium')
+  );
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 350,
+      'height' => 350,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  image_style_flush($style);
+
+  $style = image_style_save(array(
+    'name' => 'square_large',
+    'label' => 'Square - Large')
+  );
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 700,
+      'height' => 700,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  image_style_flush($style);
+  // Landscapes Styles
+  $style = image_style_save(array(
+    'name' => 'landscape_thumbnail',
+    'label' => 'Landscape - Thumbnail')
+  );
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 250,
+      'height' => 150,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  image_style_flush($style);
+
+  $style = image_style_save(array(
+    'name' => 'landscape_medium',
+    'label' => 'Landscape - Medium')
+  );
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 550,
+      'height' => 350,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  image_style_flush($style);
+
+  $style = image_style_save(array(
+    'name' => 'landscape_large',
+    'label' => 'Landscape - Large')
+  );
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 1000,
+      'height' => 700,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  image_style_flush($style);
+  // Portrait Styles
+  $style = image_style_save(array(
+    'name' => 'portrait_thumbnail',
+    'label' => 'Portrait - Thumbnail')
+  );
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 100,
+      'height' => 250,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  image_style_flush($style);
+
+  $style = image_style_save(array(
+    'name' => 'portrait_medium',
+    'label' => 'Portrait - Medium')
+  );
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 250,
+      'height' => 550,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  image_style_flush($style);
+
+  $style = image_style_save(array(
+    'name' => 'portrait_large',
+    'label' => 'Portrait - Large')
+  );
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 600,
+      'height' => 1000,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  image_style_flush($style);
   // Setup a minimal WYSIWYG editor with the basic toolbar options
     
 
