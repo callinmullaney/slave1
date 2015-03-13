@@ -22,10 +22,8 @@ dependencies[] = taxonomy
 dependencies[] = update
 
 ; Contrib modules
-dependencies[] = addressfield
-dependencies[] = better_exposed_filters
 dependencies[] = better_formats
-dependencies[] = bxslider_views_slideshow
+dependencies[] = content_menu
 dependencies[] = context
 dependencies[] = context_ui
 dependencies[] = ctools
@@ -63,19 +61,16 @@ dependencies[] = advanced_text_formatter
 dependencies[] = token
 dependencies[] = valet
 dependencies[] = views
-dependencies[] = views_slideshow
 dependencies[] = views_ui
 dependencies[] = webform
 dependencies[] = xmlsitemap
 dependencies[] = xmlsitemap_engines
 dependencies[] = xmlsitemap_node
-dependencies[] = xmlsitemap_taxonomy
 
 ; Custom Modules/Features
 dependencies[] = page_content
+dependencies[] = manage_content_views
 
 ; Pantheon Platform Modules
 ; dependencies[] = pantheon_api
-
-; Themes
 
