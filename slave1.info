@@ -69,7 +69,7 @@ dependencies[] = xmlsitemap_node
 
 ; Custom Modules/Features
 dependencies[] = page_content
-dependencies[] = manage_content_views
+; dependencies[] = manage_content_views
 
 ; Pantheon Platform Modules
 ; dependencies[] = pantheon_api
