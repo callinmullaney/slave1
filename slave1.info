@@ -31,7 +31,6 @@ dependencies[] = default_menu_link
 dependencies[] = date
 dependencies[] = date_api
 dependencies[] = devel
-; dependencies[] = easy_admin
 dependencies[] = email
 dependencies[] = entity
 dependencies[] = entityreference
@@ -52,7 +51,6 @@ dependencies[] = pathauto
 dependencies[] = publish_button
 dependencies[] = redirect
 dependencies[] = references
-dependencies[] = sonar
 dependencies[] = special_menu_items
 dependencies[] = strongarm
 dependencies[] = textformatter
@@ -67,7 +65,11 @@ dependencies[] = xmlsitemap
 dependencies[] = xmlsitemap_engines
 dependencies[] = xmlsitemap_node
 
-; Custom Modules/Features
+; Custom Modules
+dependencies[] = sonar
+; dependencies[] = easy_admin
+
+; Features
 dependencies[] = page_content
 dependencies[] = manage_content_views
 
