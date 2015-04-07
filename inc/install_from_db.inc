@@ -110,6 +110,7 @@ function install_from_db_form($form, &$form_state, &$install_state) {
   //   '#type' => 'radio',
   //   '#value' => 'quick',
   //   '#return_value' => 'quick',
+  //   '#default_value' => 'quick',
   //   '#title' => st('Ready for lift-off!'),
   //   '#description' => st('Quick install using a predefined database.'),
   //   '#parents' => array('quickstart'),
@@ -119,7 +120,7 @@ function install_from_db_form($form, &$form_state, &$install_state) {
   //   '#parents' => array('quick'),
   //   '#states' => array(
   //     'visible' => array(
-  //         'input[name="quickstart"]' => array('value' => 'quick'),
+  //         'input[name="quick"]' => array('value' => 'quick'),
   //     ),
   //   ),
   // );
@@ -149,7 +150,7 @@ function install_from_db_form($form, &$form_state, &$install_state) {
     '#type' => 'container',
     '#states' => array(
       'visible' => array(
-          'input[name="quickstart"]' => array('value' => 'standard'),
+          'input[name="standard"]' => array('value' => 'standard'),
       ),
     ),
   );

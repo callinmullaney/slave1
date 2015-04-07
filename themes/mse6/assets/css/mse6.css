@@ -43,7 +43,7 @@ canvas {
 	transition: all .3s ease-out 0.5s;
 }
 table {
-	border: 1px solid #111;
+	width: 100%;
 }
 tbody {
 	border-top: 0;
@@ -58,6 +58,40 @@ tbody {
   color: #000;
 }
 
+/*--- Messages ---*/
+div.messages {
+  margin: 3rem;
+  padding: 1rem 1rem 1rem 3rem;
+  border: none;
+}
+
+div.messages .alert-box {
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+  text-shadow: 0 0 5px #015C1F;
+}
+
+div.messages .alert-box.success {
+  border: 5px solid #016E25;
+  border-left: none;
+  border-right: none;
+  background-color: #04A63A;
+}
+
+div.messages .alert-box.alert {
+  border: 5px solid #AD0900;
+  border-left: none;
+  border-right: none;
+  background-color: #ED3023;
+  text-shadow: 0 0 5px #AD0900;
+}
+
+div.messages .pull-left {
+  float: none;
+}
+
+
 /*--- Buttons ---*/
 .form-submit {
 	background: #0DC100;
@@ -66,25 +100,22 @@ tbody {
 	padding: 5px 10px;
 	text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	font-weight: 400;
+  font-size: 14px;
 	cursor: pointer;
-	border-radius: 5px;
+	border-radius: 3px;
+  width: 100%;
 }
 .form-submit:hover {
 	background: #198E0C;
 }
 
-#edit-save,
-#edit-submit {
-	padding-right: 45px;
-	padding-left: 10px;
-}
 #edit-actions:before {
 	font-family: 'FontAwesome';
 	-moz-font-feature-settings: normal;
     -moz-font-language-override: normal;
     display: inline-block;
     font-family: FontAwesome;
-    font-size: 54px;
+    font-size: 65px;
     font-size-adjust: none;
     font-stretch: normal;
     font-style: normal;
@@ -94,8 +125,8 @@ tbody {
     text-rendering: auto;
     margin: 0 10px 0 0;
     position: absolute;
-    top: -5px;
-    right: -16px;
+    top: -7px;
+    right: -18px;
     float: right;
     content: "\f0a9";
 	color: #198E0C;
@@ -110,12 +141,13 @@ h3 {
 	font-weight: 300;
 }
 h1.page-title {
-	display: block;
-	position: relative;
-	margin: 2rem auto;
-	text-align: right;
-	max-width: 92%;
-    width: 1200px;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    padding: 0.8em 0;
+    position: relative;
+    text-align: center;
+    z-index: 1;
 }
 a {
 	color: #0DC100;
@@ -131,15 +163,22 @@ a:hover {
 }
 form {
 	position: relative;
-	padding: 60px 0 0;
 }
 
 /*--- Forms ---*/
+
+#edit-mysql {
+  display: block;
+  position: relative;
+  width: 75%;
+  margin: 0 auto;
+}
+
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
 	border: 3px solid #222;
 	border-radius: 5px;
 	font-weight: 400;
-	margin: .5rem 0;
+	margin: .5rem auto;
 	padding: 10px;
 	display: block;
 	background-color: #e6e6e6;
@@ -167,9 +206,250 @@ input[type="submit"]:focus {
 	outline: none;
 }
 input#edit-mysql-database {
-	display: inline;
-	width: 50%;
+
 }
+
+.form-item {
+  position: relative;
+  z-index: 1;
+  display: block;
+  vertical-align: top;
+  overflow: hidden;
+  padding-bottom: 25px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+input[type="email"]  {
+  position: relative;
+  display: block;
+  float: right;
+  padding: 0.8em;
+  width: 60%;
+  border: none;
+  border-radius: 0;
+  font-weight: 400;
+  -webkit-appearance: none; /* for box shadows to show on iOS */
+  background: none repeat scroll 0 0 transparent;
+  color: #bbb;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  line-height: 1.3em;
+  margin: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all .3s;
+  text-shadow: 0 0 0 transparent;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+textarea {
+  height: 5em;
+  resize: none;
+  padding: 1%;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+input[type="email"]:focus {
+  outline: none;
+  color: #fff;
+  text-shadow: 0 0 4px #aaa;
+}
+
+input[type="text"] + label,
+input[type="password"] + label,
+textarea + label,
+input[type="email"] + label {
+  display: inline-block;
+  float: right;
+  padding: 0 1em;
+  width: 40%;
+  color: #bbb;
+  font-weight: bold;
+  font-size: 70.25%;
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input[type="text"] + label .labelwrap,
+input[type="password"] + label .labelwrap,
+textarea + label .labelwrap,
+input[type="email"] + label .labelwrap {
+  position: relative;
+  display: block;
+  padding: 1.6em 0;
+  width: 100%;
+}
+
+input[type="text"] + label,
+input[type="password"] + label,
+textarea + label,
+input[type="email"] + label {
+  width: 100%;
+  position: absolute;
+  text-align: left;
+  padding: 0.6em;
+  pointer-events: none;
+  font-size: 18px;
+}
+
+input[type="text"] + label::before,
+input[type="text"] + label::after,
+input[type="password"] + label::before,
+input[type="password"] + label::after,
+textarea + label::before,
+textarea + label::after,
+input[type="email"] + label::before,
+input[type="email"] + label::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+input[type="text"] + label::before,
+input[type="password"] + label::before,
+textarea + label::before,
+input[type="email"] + label::before {
+  height: 100%;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  top: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.filled.data input[type="text"] + label::before,
+.filled.data input[type="password"] + label::before,
+.filled.data textarea + label::before,
+.filled.data input[type="email"] + label::before {
+  border-bottom: 1px solid #0dc100;
+}
+.filled.data input + label {
+  color: #0dc100;
+}
+
+input[type="text"] + label::after,
+input[type="password"] + label::after,
+textarea + label::after,
+input[type="email"] + label::after {
+  height: 3px;
+  background: #E8E000;
+  top: 100%;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+input[type="text"] + label .labelwrap,
+input[type="password"] + label .labelwrap,
+textarea + label .labelwrap,
+input[type="email"] + label .labelwrap {
+  padding: 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transition: -webkit-transform 0.2s, color 0.2s;
+  transition: transform 0.2s, color 0.2s;
+}
+
+input[type="text"]:focus,
+.filled input[type="text"],
+input[type="password"]:focus,
+.filled input[type="password"],
+textarea:focus,
+.filled textarea,
+input[type="email"]:focus,
+.filled input[type="email"] {
+  opacity: 1;
+  background-color: transparent;
+  border: 0;
+  padding:0.8em;
+  -webkit-transition: opacity 0s 0.2s;
+  transition: opacity 0s 0.2s;
+}
+
+input[type="text"] + label::before,
+input[type="text"] + label::after,
+input[type="text"] + label .labelwrap,
+input[type="text"]:focus,
+.filled input[type="text"],
+input[type="password"] + label::before,
+input[type="password"] + label::after,
+input[type="password"] + label .labelwrap,
+input[type="password"]:focus,
+.filled input[type="password"],
+input[type="email"] + label::before,
+input[type="email"] + label::after,
+input[type="email"] + label .labelwrap,
+input[type="email"]:focus,
+.filled input[type="email"],
+textarea + label::before,
+textarea + label::after, 
+textarea + label .labelwrap,
+textarea:focus,
+.filled textarea {
+  -webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+  transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+input[type="text"]:focus + label::before,
+.filled input[type="text"] + label::before,
+input[type="password"]:focus + label::before,
+.filled input[type="password"] + label::before,
+input[type="email"]:focus + label::before,
+.filled input[type="email"] + label::before,
+textarea:focus + label::before,
+.filled textarea + label::before {
+  border-bottom: 2px solid #E8E000;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+input[type="text"]:focus + label::after,
+.filled input[type="text"] + label::after,
+input[type="password"]:focus + label::after,
+.filled input[type="password"] + label::after,
+input[type="email"]:focus + label::after,
+.filled input[type="email"] + label::after,
+textarea:focus + label::after,
+.filled textarea + label::after {
+  opacity: 0;
+}
+
+input[type="text"]:focus + label .labelwrap,
+.filled input[type="text"] + label .labelwrap,
+input[type="password"]:focus + label .labelwrap,
+.filled input[type="password"] + label .labelwrap,
+input[type="email"]:focus + label .labelwrap,
+.filled input[type="email"] + label .labelwrap {
+  -webkit-transform: translate3d(0, 2.1em, 0) scale3d(0.75, 0.75, 1);
+  transform: translate3d(0, 2.1em, 0) scale3d(0.75, 0.75, 1);
+}
+
+textarea:focus + label .labelwrap,
+.filled textarea + label .labelwrap {
+  -webkit-transform: translate3d(0, 5.3em, 0) scale3d(0.75, 0.75, 1);
+  transform: translate3d(0, 5.3em, 0) scale3d(0.75, 0.75, 1);
+}
+.filled textarea {
+  background-color: #a8a8a8;
+}
+
+
+
 
 select {
 	color: #222;
@@ -256,8 +536,8 @@ ul.sbOptions li + li a:hover {
 
 .form-item, 
 .form-actions {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
     position: relative;
 }
 .form-item-mysql-database {
@@ -269,60 +549,23 @@ ul.sbOptions li + li a:hover {
 .form-item-mysql-password {
 	display: block;
 	position: relative;
-	float: left;
-	width: 50%;
-	padding: 2% 2% 2% 0%;
-	margin-top: 0;
-    box-sizing: border-box;
 }
-.form-item input + .description {
-    background-color: #bbb;
-    border-radius: 4px;
-    color: #333;
-    display: inline-block;
-    font-size: 14px;
-    margin: 0 10px 0 0;
-    padding: 12px 15px;
-    position: relative;
-    float: right;
-    visibility: hidden;
-    z-index: 10;
-    width: 47%;
-    box-sizing: border-box;
-    -webkit-transition: all .5s ease-out 0.5s;
-	-moz-transition: all .5s ease-out 0.5s;
-	-o-transition: all .5s ease-out 0.5s;
-	transition: all .5s ease-out 0.5s;
-}
-.form-item input:focus + .description {
-	visibility: visible;
-	margin: 0;
-}
-.form-item input + .description:before {
-	content: "";
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 8px 8px 8px 0;
-	border-color: transparent #bbbbbb transparent;
-    position: absolute;
-    top: 16px;
-    left: -8px;
+.form-item label + .description {
+    display: none;
 }
 
 .option_wrapper {
-	background: none repeat scroll 0 0 #2a2a2a;
-    border-radius: 5px;
-    box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.25) inset;
-    box-sizing: border-box;
-    border: 1px solid #232323;
-    display: block;
-    float: left;
-    margin: 1%;
-    padding: 4% 2%;
-    position: relative;
-    width: 31%;
-    -webkit-transition: all .3s;
+	background: none repeat scroll 0 0 transparent;
+  box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.25) inset;
+  box-sizing: border-box;
+  border: 1px solid #222;
+  display: block;
+  float: left;
+  margin: 1%;
+  padding: 4% 2%;
+  position: relative;
+  width: 31.33%;
+  -webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	-o-transition: all .3s;
 	transition: all .3s;
@@ -367,9 +610,6 @@ ul.sbOptions li + li a:hover {
 	-o-transition: all .3s;
 	transition: all .3s;
 }
-.option_wrapper:hover:before {
-	font-size: 80px
-}
 .option_wrapper.active:before {
 	color: #0dc100;
 	font-size: 80px
@@ -380,19 +620,18 @@ ul.sbOptions li + li a:hover {
 #edit-option-wrapper-3:before {
 	content: "\f155";
 }
-.option_wrapper .form-item-quickstart > input,
-#edit-standard-options .form-type-checkbox > input,
-#edit-install-options .form-type-radio > input {
+.option_wrapper input,
+#edit-standard-options .form-checkbox > input {
 	display: none;
 }
-.option_wrapper .form-item-quickstart > input + label {
+.option_wrapper #edit-quickstart--2-wrapper input + label {
 	padding: 100px 0 5px;
 	margin: -20px 0 10px;
 	cursor: pointer;
 	text-align: center;
 	font-size: 18px;
 }
-.option_wrapper .form-item-quickstart > input + label:hover {
+.option_wrapper #edit-quickstart--2-wrapper input + label:hover {
 	color: #0dc100;
 }
 .option_wrapper label.option {
@@ -492,9 +731,10 @@ ul.sbOptions li + li a:hover {
 	color: #0dc100;
 }
 
-table.system-status-report {
-	margin-bottom: 20px;
+#edit-driver-wrapper {
+  display: none;
 }
+
 table.system-status-report td.status-icon {
     padding-right: 5px;
     width: 16px;
@@ -586,12 +826,10 @@ table.system-status-report tr.error td.status-icon div {
     border-radius: 10px;
     display: table;
     margin: 0 auto 0.5rem;
-    max-width: 92%;
-    width: 1200px;
+    width: 100%;
     opacity: 0;
     position: relative;
     z-index: 1;
-    box-shadow: 0 1px 20px rgba(0,0,0,0.3);
 }
 body.loaded #page {
 	opacity: 1;
@@ -600,47 +838,53 @@ body.loaded #page {
 
 /*Sidebar Region*/
 #sidebar-first {
-	display: table-cell;
-    padding: 0;
-    position: relative;
-    width: 24%;
-    /*border-right: 1px solid #222;*/
-    background-image: url("profiles/slave1/themes/mse6/assets/images/noise.png");
+	display: block
+  padding: 0;
+  position: relative;
+  width: 100%;
+  /*border-right: 1px solid #222;*/
+  background-image: url("profiles/slave1/themes/mse6/assets/images/noise.png");
 	background-repeat: repeat;
 }
 #logo {
-	margin: -50px 0 0 -50px;
+	/*margin: -65px 0 0 5px;*/
     max-width: 340px;
+    display: none;
 }
 ol.task-list {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+  display: table;
+  width: 100%;
+  border-bottom: 1px solid #222;
+  border-top: 1px solid #222;
 }
 ol.task-list li {
 	display: block;
 	position: relative;
-	padding: 10px 15px;
-	border-bottom: 1px solid #222;
+	padding: 0.76em 1.2em;
+	border-right: 1px solid #222;
+  border-left: 1px solid #222;
+  display: table-cell;
 }
 ol.task-list li:before {
 	font-family: 'FontAwesome';
 	-moz-font-feature-settings: normal;
-    -moz-font-language-override: normal;
-    display: inline-block;
-    font-family: FontAwesome;
-    font-size: 90%;
-    font-size-adjust: none;
-    font-stretch: normal;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    line-height: 1;
-    text-rendering: auto;
-    margin: 0 10px 0 0;
-    text-shadow: 0 1px 3px #000000;
-
-    content: "\f10c";
+  -moz-font-language-override: normal;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 90%;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-rendering: auto;
+  margin: 0 10px 0 0;
+  text-shadow: 0 1px 3px #000000;
+  content: "\f10c";
 	color: #555;
 }
 ol.task-list li.done {
@@ -666,8 +910,10 @@ ol.task-list li.done + li.done + li.done:after {
 	display: none; 
 }
 ol.task-list li.active {
-	font-weight: 300;
-	color: #E8E001;
+	box-shadow: 0 0 10px rgba(232, 224, 1, 0.4);
+  color: #e8e001;
+  font-weight: 300;
+  z-index: 10;
 }
 ol.task-list li.active:before {
 	color: #E8E001;
@@ -676,11 +922,11 @@ ol.task-list li.active:before {
 
 /*-- Content Region --*/
 #content {
-	display: table-cell;
+	display: block;
 	position: relative;
 	vertical-align: top;
-	padding: 2%;
-	width: 76%;
+  max-width: 60%;
+  margin: 4rem auto 0;
 	background-image: url("/profiles/slave1/themes/mse6/assets/images/noise.png");
 	background-repeat: repeat;
 	position: relative;
@@ -690,7 +936,7 @@ ol.task-list li.active:before {
 }
 #content #install-settings-form #edit-mysql label,
 #content #install-settings-form #edit-driver label {
-	font-size: 13px;
+	font-size: 20px;
 }
 
 .fullScreen {
@@ -759,34 +1005,21 @@ ol.task-list li.active:before {
 	margin: 0;
 }
 
-#install-settings-form #edit-mysql,
-#install-settings-form #edit-sqlite {
-	padding: 2%;
-	margin: 0;
-	background-color: #383838;
-	border: 2px solid #161616;
-	border-top: none;
-  /* background: url("/profiles/slave1/themes/mse6/assets/images/bg-hull.png") repeat scroll 0 0 #383838; */
-}
-
 
 .form-wrapper > *:last-child,
 .fieldset-wrapper > *:last-child {
-	margin-bottom: 0;
 }
 
 /*-- Submit Buttons --*/
 #edit-actions {
 	display: block;
-    float: right;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 0;
+  overflow: hidden;
+  max-width: 50%;
+  margin: 0 auto;
+  clear: both;
 }
 .form-submit {
-	font-size: 15px;
+	font-size: 20px;
 	padding: 8px 20px;
 }
 
@@ -801,23 +1034,87 @@ label {
 fieldset {
 	border: 1px solid #222;
 	padding: 15px 20px;
+  position: relative;
+  margin-bottom: 3em;
+}
+fieldset legend {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 1);
+  display: block;
+  float: none;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+  position: absolute;
+  top: -15px;
+  left: 40%;
+}
+html.js fieldset legend span.fieldset-legend,
+fieldset legend span.fieldset-legend {
+  background: none repeat scroll 0 0 transparent;
+  display: block;
+  margin: 0 auto;
+  padding: 0 10%;
+  position: relative;
+  width: auto;
+}
+fieldset legend span.fieldset-legend a {
+  color: #888;
+  font-weight: 300;
+}
+fieldset legend span.fieldset-legend .summary {
+  display: none;
 }
 .fieldset-description {
 	font-size: 14px;
-}
-#edit-mysql--2 input {
-	width: 50%;
-	display: inline-block;
 }
 
 div.error p.error {
 	color: #ed541d;
 }
 
+div.password-strength,
+div.password-confirm {
+  float: none;
+  margin-top: 1.4em;
+  position: absolute;
+  width: 100%;
+  top: 44px;
+  margin: 0;
+  right: 0;
+  width: auto;
+}
+.password-strength .password-strength-title {
+  display: none;
+}
+.password-strength .password-indicator {
+  background-color: transparent;
+  height: 2px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+.filled.data .password-strength .password-indicator {
+  height: 1px;
+}
+.filled.data .password-strength .password-indicator div {
+
+}
+
 /*-- Loading --*/
+#updateprogress {
+  font-weight: bold;
+  margin: 3em auto;
+  max-width: 90%;
+  text-align: center;
+}
+.progress .bar {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+}
 .progress .filled {
     background-color: #000;
-    height: 1.5em;
+    height: 3em;
     width: 5px;
 }
 .progress .filled {
@@ -850,6 +1147,7 @@ body.loaded canvas {
     text-shadow: 0 1px 5px #000;
     font-size: 15px;
     color: #aaa;
+    display: none;
 }
 .powered img {
 	float: right;

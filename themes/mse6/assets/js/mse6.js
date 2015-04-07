@@ -3,6 +3,20 @@
 $(document).ready(function() {
   $('select').selectbox();
 
+  $("input").focus(function() {
+   $(this).parent().addClass("filled");
+  }).blur(function(){
+    if($(this).val() == "") {
+      $(this).parent().removeClass("filled");
+      $(this).parent().removeClass("data");
+    }
+    if($(this).val() != "") {
+      $(this).parent().addClass("data");
+    }
+  })
+
+
+
   $("#edit-driver-mysql").parent().addClass('active');
 
   // database active tab toggle

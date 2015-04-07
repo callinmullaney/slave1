@@ -84,7 +84,7 @@ class Star
     else
       z = 1000;
        
-    velocity = 3; 
+    velocity = 0.5; 
     star_size = random(2, 10);
   }
    
@@ -108,7 +108,7 @@ class Star
    
   void display()
   {
-    float star_color = 255 - z * 255 / 1000;
+    float star_color = 160 - z * 160 / 1000;
     fill(star_color);
     ellipse(screen_x, screen_y, screen_diameter, screen_diameter);  
   }
