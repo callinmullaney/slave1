@@ -18,7 +18,6 @@ dependencies[] = number
 dependencies[] = options
 dependencies[] = path
 dependencies[] = rdf
-dependencies[] = taxonomy
 dependencies[] = update
 
 ; Contrib modules
@@ -29,14 +28,10 @@ dependencies[] = context_ui
 dependencies[] = ctools
 dependencies[] = default_menu_link
 dependencies[] = date
-dependencies[] = date_api
 dependencies[] = devel
-; dependencies[] = easy_admin
 dependencies[] = email
 dependencies[] = entity
 dependencies[] = entityreference
-dependencies[] = eck
-dependencies[] = fawesome
 dependencies[] = features
 dependencies[] = field_group
 dependencies[] = globalredirect
@@ -46,12 +41,12 @@ dependencies[] = libraries
 dependencies[] = menu_block
 dependencies[] = metatags_quick
 dependencies[] = module_filter
-dependencies[] = nodeformsettings
 dependencies[] = page_title
 dependencies[] = pathauto
 dependencies[] = publish_button
 dependencies[] = redirect
 dependencies[] = references
+dependencies[] = simplify
 dependencies[] = sonar
 dependencies[] = special_menu_items
 dependencies[] = strongarm
@@ -68,6 +63,8 @@ dependencies[] = xmlsitemap_engines
 dependencies[] = xmlsitemap_node
 
 ; Custom Modules/Features
+dependencies[] = asset
+dependencies[] = fawesome
 dependencies[] = page_content
 ; dependencies[] = manage_content_views
 

@@ -91,7 +91,7 @@ function slave1_install(&$task, $url) {
   variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
   
   
-  // Set the jQuery version to 1.8.
+  // Set the jQuery version to 1.10.
   variable_set('jquery_update_compression_type', 'min');
   variable_set('jquery_update_jquery_cdn', 'google');
   variable_set('jquery_update_jquery_version', '1.10');
