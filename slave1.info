@@ -52,7 +52,6 @@ dependencies[] = special_menu_items
 dependencies[] = strongarm
 dependencies[] = textformatter
 dependencies[] = textformatter_contrib
-dependencies[] = advanced_text_formatter
 dependencies[] = token
 dependencies[] = valet
 dependencies[] = views
@@ -65,7 +64,7 @@ dependencies[] = xmlsitemap_node
 ; Custom Modules/Features
 dependencies[] = asset
 dependencies[] = fawesome
-dependencies[] = page_content
+; dependencies[] = page_content
 ; dependencies[] = manage_content_views
 
 ; Pantheon Platform Modules
