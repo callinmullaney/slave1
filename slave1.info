@@ -64,7 +64,7 @@ dependencies[] = xmlsitemap_node
 ; Custom Modules/Features
 dependencies[] = asset
 dependencies[] = fawesome
-; dependencies[] = page_content
+dependencies[] = page_content
 ; dependencies[] = manage_content_views
 
 ; Pantheon Platform Modules
