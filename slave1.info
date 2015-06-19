@@ -21,6 +21,7 @@ dependencies[] = rdf
 dependencies[] = update
 
 ; Contrib modules
+dependencies[] = autocomplete_deluxe
 dependencies[] = better_formats
 dependencies[] = content_menu
 dependencies[] = context
