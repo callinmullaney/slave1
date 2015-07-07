@@ -46,7 +46,6 @@ dependencies[] = page_title
 dependencies[] = pathauto
 dependencies[] = publish_button
 dependencies[] = redirect
-dependencies[] = references
 dependencies[] = simplify
 dependencies[] = sonar
 dependencies[] = special_menu_items
