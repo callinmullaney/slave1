@@ -38,9 +38,9 @@ function slave1_install(&$task, $url) {
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'jango')
+    ->condition('name', 'fett')
     ->execute();
-  variable_set('theme_default', 'jango');
+  variable_set('theme_default', 'fett');
   
   
   // Enable the admin theme.
