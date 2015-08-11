@@ -54,7 +54,6 @@ dependencies[] = textformatter
 dependencies[] = textformatter_contrib
 dependencies[] = token
 dependencies[] = valet
-dependencies[] = vertical_tabs_responsive
 dependencies[] = video_embed_field
 dependencies[] = views
 dependencies[] = views_ui
