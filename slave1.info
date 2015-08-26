@@ -23,6 +23,7 @@ dependencies[] = update
 ; Contrib modules
 dependencies[] = autocomplete_deluxe
 dependencies[] = better_formats
+dependencies[] = betterlogin
 dependencies[] = content_menu
 dependencies[] = context
 dependencies[] = context_ui
