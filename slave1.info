@@ -56,6 +56,7 @@ dependencies[] = strongarm
 dependencies[] = textformatter
 dependencies[] = textformatter_contrib
 dependencies[] = token
+dependencies[] = transliteration
 dependencies[] = valet
 dependencies[] = video_embed_field
 dependencies[] = views
