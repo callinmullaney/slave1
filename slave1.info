@@ -21,8 +21,6 @@ dependencies[] = rdf
 dependencies[] = update
 
 ; Contrib modules
-dependencies[] = autocomplete_deluxe
-dependencies[] = better_formats
 dependencies[] = betterlogin
 dependencies[] = content_menu
 dependencies[] = context
@@ -53,8 +51,6 @@ dependencies[] = simplify
 dependencies[] = sonar
 dependencies[] = special_menu_items
 dependencies[] = strongarm
-dependencies[] = textformatter
-dependencies[] = textformatter_contrib
 dependencies[] = token
 dependencies[] = transliteration
 dependencies[] = valet
@@ -62,7 +58,6 @@ dependencies[] = video_embed_field
 dependencies[] = views
 dependencies[] = views_bulk_operations
 dependencies[] = views_ui
-dependencies[] = webform
 dependencies[] = xmlsitemap
 dependencies[] = xmlsitemap_engines
 dependencies[] = xmlsitemap_node
