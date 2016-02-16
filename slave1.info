@@ -22,7 +22,6 @@ dependencies[] = update
 
 ; Contrib modules
 dependencies[] = betterlogin
-dependencies[] = content_menu
 dependencies[] = context
 dependencies[] = context_ui
 dependencies[] = ctools
@@ -66,7 +65,6 @@ dependencies[] = xmlsitemap_node
 dependencies[] = asset
 dependencies[] = fawesome
 dependencies[] = page_content
-dependencies[] = manage_content_view
 
 ; Pantheon Platform Modules
 ; dependencies[] = pantheon_api
