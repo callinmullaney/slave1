@@ -39,6 +39,7 @@ dependencies[] = globalredirect
 dependencies[] = inline_entity_form
 dependencies[] = jquery_update
 dependencies[] = libraries
+dependencies[] = manualcrop
 dependencies[] = menu_block
 dependencies[] = metatags_quick
 dependencies[] = module_filter
